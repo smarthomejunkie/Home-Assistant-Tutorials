@@ -1,0 +1,74 @@
+views:
+  - badges: []
+    cards:
+      - cards:
+          - columns: 4
+            entities:
+              - entity: switch.dreamscreen_mode_off
+                icon: 'mdi:power'
+                name: null
+                tap_action:
+                  action: call-service
+                  service: switch.toggle
+                  service_data:
+                    entity_id: switch.dreamscreen_mode_off
+              - entity: switch.dreamscreen_mode_video
+                icon: 'mdi:television'
+                name: null
+                tap_action:
+                  action: call-service
+                  service: switch.toggle
+                  service_data:
+                    entity_id: switch.dreamscreen_mode_video
+              - entity: switch.dreamscreen_mode_music
+                icon: 'mdi:music'
+                name: null
+                tap_action:
+                  action: call-service
+                  service: switch.toggle
+                  service_data:
+                    entity_id: switch.dreamscreen_mode_music
+              - entity: switch.dreamscreen_mode_ambient
+                icon: 'mdi:alarm-light'
+                name: null
+                tap_action:
+                  action: call-service
+                  service: switch.toggle
+                  service_data:
+                    entity_id: switch.dreamscreen_mode_ambient
+            show_state: false
+            title: Mode
+            type: glance
+          - columns: 3
+            entities:
+              - entity: switch.dreamscreen_input_television
+                icon: 'mdi:television'
+                name: null
+                tap_action:
+                  action: call-service
+                  service: switch.turn_on
+                  service_data:
+                    entity_id: switch.dreamscreen_input_television
+              - entity: switch.dreamscreen_input_movie
+                icon: 'mdi:movie'
+                name: null
+                tap_action:
+                  action: call-service
+                  service: switch.turn_on
+                  service_data:
+                    entity_id: switch.dreamscreen_input_movie
+              - entity: switch.dreamscreen_input_sound
+                icon: 'mdi:music'
+                name: null
+                tap_action:
+                  action: call-service
+                  service: switch.turn_on
+                  service_data:
+                    entity_id: switch.dreamscreen_input_sound
+            show_state: false
+            title: Input
+            type: glance
+        title: My Dreamscreen
+        type: vertical-stack
+    path: dreamscreen
+    title: Dreamscreen
