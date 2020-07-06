@@ -1,0 +1,144 @@
+#dreamscreen
+dreamscreen:
+  devices:
+    - dream_screen:
+        address: 192.168.68.111
+        timeout: 5
+
+#sensors
+sensor:
+  - platform: template
+    sensors:
+      dreamscreen_mode:
+        friendly_name: "Dreamscreen Mode"
+        value_template: >-
+          {% if is_state_attr('dreamscreen.dream_screen', 'device_mode', 1) %}
+            Video
+          {% elif is_state_attr('dreamscreen.dream_screen', 'device_mode', 2) %}
+            Music
+          {% elif is_state_attr('dreamscreen.dream_screen', 'device_mode', 3) %}
+            Ambient
+          {% else %}
+            Off
+          {% endif %}
+        icon_template: >-
+          {% if is_state_attr('dreamscreen.dream_screen', 'device_mode', 1) %}
+            mdi:television
+          {% elif is_state_attr('dreamscreen.dream_screen', 'device_mode', 2) %}
+            mdi:music-note
+          {% elif is_state_attr('dreamscreen.dream_screen', 'device_mode', 3) %}
+            mdi:lightbulb-on
+          {% else %}
+            mdi:power-off
+          {% endif %}
+      dreamscreen_input:
+        friendly_name: "Dreamscreen Input"
+        value_template: >-
+          {% if is_state_attr('dreamscreen.dream_screen', 'hdmi_input', 0) %}
+            Television
+          {% elif is_state_attr('dreamscreen.dream_screen', 'hdmi_input', 1) %}
+            Movie
+          {% elif is_state_attr('dreamscreen.dream_screen', 'hdmi_input', 2) %}
+            Sound
+          {% endif %}
+        icon_template: >-
+          {% if is_state_attr('dreamscreen.dream_screen', 'hdmi_input', 0) %}
+            mdi:television
+          {% elif is_state_attr('dreamscreen.dream_screen', 'hdmi_input', 1) %}
+            mdi:video
+          {% elif is_state_attr('dreamscreen.dream_screen', 'hdmi_input', 2) %}
+            mdi:music-note
+          {% endif %}
+
+#switches
+switch:
+  - platform: template
+    switches:
+      dreamscreen_mode_video:
+        friendly_name: "Dreamscreen Mode Video"
+        value_template: "{{ is_state('sensor.dreamscreen_mode', 'Video') }}"
+        turn_on:
+          service: dreamscreen.set_mode
+          data:
+            entity_id: dreamscreen.dream_screen
+            mode: 1
+        turn_off:
+          service: dreamscreen.set_mode
+          data:
+            entity_id: dreamscreen.dream_screen
+            mode: 0
+      dreamscreen_mode_music:
+        friendly_name: "Dreamscreen Mode Music"
+        value_template: "{{ is_state('sensor.dreamscreen_mode', 'Music') }}"
+        turn_on:
+          service: dreamscreen.set_mode
+          data:
+            entity_id: dreamscreen.dream_screen
+            mode: 2
+        turn_off:
+          service: dreamscreen.set_mode
+          data:
+            entity_id: dreamscreen.dream_screen
+            mode: 0
+      dreamscreen_mode_ambient:
+        friendly_name: "Dreamscreen Mode Ambient"
+        value_template: "{{ is_state('sensor.dreamscreen_mode', 'Ambient') }}"
+        turn_on:
+          service: dreamscreen.set_mode
+          data:
+            entity_id: dreamscreen.dream_screen
+            mode: 3
+        turn_off:
+          service: dreamscreen.set_mode
+          data:
+            entity_id: dreamscreen.dream_screen
+            mode: 0
+      dreamscreen_mode_off:
+        friendly_name: "Dreamscreen Mode Off"
+        value_template: "{{ is_state('sensor.dreamscreen_mode', 'Off') }}"
+        turn_on:
+          service: dreamscreen.set_mode
+          data:
+            entity_id: dreamscreen.dream_screen
+            mode: 0
+        turn_off:
+          service: dreamscreen.set_mode
+          data:
+            entity_id: dreamscreen.dream_screen
+            mode: 0
+      dreamscreen_input_television:
+        friendly_name: "Dreamscreen Input Television"
+        value_template: "{{ is_state('sensor.dreamscreen_input', 'Television') }}"
+        turn_on:
+          service: dreamscreen.set_hdmi_source
+          data:
+            entity_id: dreamscreen.dream_screen
+            source: 0
+        turn_off:
+          service: input_boolean.turn_off
+          data:
+            entity_id: input_boolean.dummy
+      dreamscreen_input_movie:
+        friendly_name: "Dreamscreen Input Movie"
+        value_template: "{{ is_state('sensor.dreamscreen_input', 'Movie') }}"
+        turn_on:
+          service: dreamscreen.set_hdmi_source
+          data:
+            entity_id: dreamscreen.dream_screen
+            source: 1
+        turn_off:
+          service: input_boolean.turn_off
+          data:
+            entity_id: input_boolean.dummy
+      dreamscreen_input_sound:
+        friendly_name: "Dreamscreen Input Sound"
+        value_template: "{{ is_state('sensor.dreamscreen_input', 'Sound') }}"
+        turn_on:
+          service: dreamscreen.set_hdmi_source
+          data:
+            entity_id: dreamscreen.dream_screen
+            source: 2
+        turn_off:
+          service: input_boolean.turn_off
+          data:
+            entity_id: input_boolean.dummy
