@@ -6,7 +6,7 @@ views:
             entities:
               - entity: switch.dreamscreen_mode_off
                 icon: 'mdi:power'
-                name: null
+                name: 'Off'
                 tap_action:
                   action: call-service
                   service: switch.toggle
@@ -14,7 +14,7 @@ views:
                     entity_id: switch.dreamscreen_mode_off
               - entity: switch.dreamscreen_mode_video
                 icon: 'mdi:television'
-                name: null
+                name: Video
                 tap_action:
                   action: call-service
                   service: switch.toggle
@@ -22,7 +22,7 @@ views:
                     entity_id: switch.dreamscreen_mode_video
               - entity: switch.dreamscreen_mode_music
                 icon: 'mdi:music'
-                name: null
+                name: Music
                 tap_action:
                   action: call-service
                   service: switch.toggle
@@ -30,7 +30,7 @@ views:
                     entity_id: switch.dreamscreen_mode_music
               - entity: switch.dreamscreen_mode_ambient
                 icon: 'mdi:alarm-light'
-                name: null
+                name: Ambient
                 tap_action:
                   action: call-service
                   service: switch.toggle
@@ -43,7 +43,7 @@ views:
             entities:
               - entity: switch.dreamscreen_input_television
                 icon: 'mdi:television'
-                name: null
+                name: Television
                 tap_action:
                   action: call-service
                   service: switch.turn_on
@@ -51,7 +51,7 @@ views:
                     entity_id: switch.dreamscreen_input_television
               - entity: switch.dreamscreen_input_movie
                 icon: 'mdi:movie'
-                name: null
+                name: Movie
                 tap_action:
                   action: call-service
                   service: switch.turn_on
@@ -59,7 +59,7 @@ views:
                     entity_id: switch.dreamscreen_input_movie
               - entity: switch.dreamscreen_input_sound
                 icon: 'mdi:music'
-                name: null
+                name: Music
                 tap_action:
                   action: call-service
                   service: switch.turn_on
@@ -68,6 +68,86 @@ views:
             show_state: false
             title: Input
             type: glance
+          - entities:
+              - entity: switch.dreamscreen_restart_device
+                icon: 'mdi:restart'
+                name: Restart
+                tap_action:
+                  action: call-service
+                  service: switch.toggle
+                  service_data:
+                    entity_id: switch.dreamscreen_restart_device
+              - entity: switch.dreamscreen_hdr_tone_remapping
+                icon: 'mdi:hdr'
+                name: HDR Tone remapping
+                tap_action:
+                  action: call-service
+                  service: switch.toggle
+                  service_data:
+                    entity_id: switch.dreamscreen_hdr_tone_remapping
+            title: Advanced
+            type: glance
+          - type: horizontal-stack
+            title: Scenes
+            cards:
+              - entity: switch.dreamscreen_scene_random
+                show_entity_picture: true
+                show_icon: false
+                show_name: false
+                show_state: false
+                type: 'custom:button-card'
+              - entity: switch.dreamscreen_scene_fire
+                show_entity_picture: true
+                show_icon: false
+                show_name: false
+                show_state: false
+                type: 'custom:button-card'
+              - entity: switch.dreamscreen_scene_twinkle
+                show_entity_picture: true
+                show_icon: false
+                show_name: false
+                show_state: false
+                type: 'custom:button-card'
+          - type: horizontal-stack
+            cards:
+              - entity: switch.dreamscreen_scene_holiday
+                show_entity_picture: true
+                show_icon: false
+                show_name: false
+                show_state: false
+                type: 'custom:button-card'
+              - entity: switch.dreamscreen_scene_pop
+                show_entity_picture: true
+                show_icon: false
+                show_name: false
+                show_state: false
+                type: 'custom:button-card'
+              - entity: switch.dreamscreen_scene_forest
+                show_entity_picture: true
+                show_icon: false
+                show_name: false
+                show_state: false
+                type: 'custom:button-card'
+          - type: horizontal-stack
+            cards:
+              - entity: switch.dreamscreen_scene_ocean
+                show_entity_picture: true
+                show_icon: false
+                show_name: false
+                show_state: false
+                type: 'custom:button-card'
+              - entity: switch.dreamscreen_scene_pride
+                show_entity_picture: true
+                show_icon: false
+                show_name: false
+                show_state: false
+                type: 'custom:button-card'
+              - entity: switch.dreamscreen_scene_july4
+                show_entity_picture: true
+                show_icon: false
+                show_name: false
+                show_state: false
+                type: 'custom:button-card'
         title: My Dreamscreen
         type: vertical-stack
     path: dreamscreen
