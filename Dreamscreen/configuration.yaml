@@ -49,6 +49,44 @@ sensor:
           {% elif is_state_attr('dreamscreen.dream_screen', 'hdmi_input', 2) %}
             mdi:music-note
           {% endif %}
+      dreamscreen_hdr:
+        friendly_name: "Dreamscreen HDR Tone Remapping"
+        value_template: >-
+          {% if is_state_attr('dreamscreen.dream_screen', 'hdr_tone_remapping', 1) %}
+            HDR
+          {% endif %}
+        icon_template: >-
+          {% if is_state_attr('dreamscreen.dream_screen', 'hdr_tone_remapping', 1) %}
+            mdi:image-filter-hdr
+          {% endif %}
+      dreamscreen_restart:
+        friendly_name: "Dreamscreen Restart Device"
+        value_template: >-
+          Restart
+        icon_template: >-
+          mdi:restart
+      dreamscreen_scene:
+        friendly_name: "Dreamscreen Scene"
+        value_template: >-
+          {% if is_state_attr('dreamscreen.dream_screen', 'ambient_scene', 0) %}
+            Random
+          {% elif is_state_attr('dreamscreen.dream_screen', 'ambient_scene', 1) %}
+            Fire
+          {% elif is_state_attr('dreamscreen.dream_screen', 'ambient_scene', 2) %}
+            Twinkle
+          {% elif is_state_attr('dreamscreen.dream_screen', 'ambient_scene', 3) %}
+            Ocean
+          {% elif is_state_attr('dreamscreen.dream_screen', 'ambient_scene', 4) %}
+            Pride
+          {% elif is_state_attr('dreamscreen.dream_screen', 'ambient_scene', 5) %}
+            July4
+          {% elif is_state_attr('dreamscreen.dream_screen', 'ambient_scene', 6) %}
+            Holiday
+          {% elif is_state_attr('dreamscreen.dream_screen', 'ambient_scene', 7) %}
+            Pop
+          {% elif is_state_attr('dreamscreen.dream_screen', 'ambient_scene', 8) %}
+            Forest
+          {% endif %}
 
 #switches
 switch:
@@ -142,3 +180,189 @@ switch:
           service: input_boolean.turn_off
           data:
             entity_id: input_boolean.dummy
+      dreamscreen_hdr_tone_remapping:
+        friendly_name: "Dreamscreen HDR Tone Remapping"
+        value_template: "{{ is_state('sensor.dreamscreen_hdr', 'HDR') }}"
+        turn_on:
+          service: dreamscreen.set_hdr_tone_remapping
+          data:
+            entity_id: dreamscreen.dream_screen
+            hdr_tone_remapping: "1"
+        turn_off:
+          service: dreamscreen.set_hdr_tone_remapping
+          data:
+            entity_id: dreamscreen.dream_screen
+            hdr_tone_remapping: "0"
+      dreamscreen_restart_device:
+        friendly_name: "Dreamscreen Restart Device"
+        value_template: "{{ is_state('sensor.dreamscreen_restart', 'Restart') }}"
+        turn_on:
+          service: dreamscreen.restart_device
+          data:
+            entity_id: dreamscreen.dream_screen
+        turn_off:
+          service: dreamscreen.restart_device
+          data:
+            entity_id: dreamscreen.dream_screen
+      dreamscreen_scene_random:
+        friendly_name: "Dreamscreen Scene Random"
+        value_template: "{{ is_state('sensor.dreamscreen_scene', 'Random') }}"
+        turn_on:
+          service: dreamscreen.set_ambient_scene
+          data:
+            entity_id: dreamscreen.dream_screen
+            scene: 0
+        turn_off:
+          service: input_boolean.turn_off
+          data:
+            entity_id: input_boolean.dummy
+        entity_picture_template: >-
+          {% if is_state('sensor.dreamscreen_scene', 'Random') %}
+            /local/dreamscreen/random-on.png
+          {% else %}
+            /local/dreamscreen/random-off.png
+          {% endif %}
+      dreamscreen_scene_fire:
+        friendly_name: "Dreamscreen Scene Fire"
+        value_template: "{{ is_state('sensor.dreamscreen_scene', 'Fire') }}"
+        turn_on:
+          service: dreamscreen.set_ambient_scene
+          data:
+            entity_id: dreamscreen.dream_screen
+            scene: 1
+        turn_off:
+          service: input_boolean.turn_off
+          data:
+            entity_id: input_boolean.dummy
+        entity_picture_template: >-
+          {% if is_state('sensor.dreamscreen_scene', 'Fire') %}
+            /local/dreamscreen/fire-on.png
+          {% else %}
+            /local/dreamscreen/fire-off.png
+          {% endif %}
+      dreamscreen_scene_twinkle:
+        friendly_name: "Dreamscreen Scene Twinkle"
+        value_template: "{{ is_state('sensor.dreamscreen_scene', 'Twinkle') }}"
+        turn_on:
+          service: dreamscreen.set_ambient_scene
+          data:
+            entity_id: dreamscreen.dream_screen
+            scene: 2
+        turn_off:
+          service: input_boolean.turn_off
+          data:
+            entity_id: input_boolean.dummy
+        entity_picture_template: >-
+          {% if is_state('sensor.dreamscreen_scene', 'Twinkle') %}
+            /local/dreamscreen/twinkle-on.png
+          {% else %}
+            /local/dreamscreen/twinkle-off.png
+          {% endif %}
+      dreamscreen_scene_ocean:
+        friendly_name: "Dreamscreen Scene Ocean"
+        value_template: "{{ is_state('sensor.dreamscreen_scene', 'Ocean') }}"
+        turn_on:
+          service: dreamscreen.set_ambient_scene
+          data:
+            entity_id: dreamscreen.dream_screen
+            scene: 3
+        turn_off:
+          service: input_boolean.turn_off
+          data:
+            entity_id: input_boolean.dummy
+        entity_picture_template: >-
+          {% if is_state('sensor.dreamscreen_scene', 'Ocean') %}
+            /local/dreamscreen/ocean-on.png
+          {% else %}
+            /local/dreamscreen/ocean-off.png
+          {% endif %}
+      dreamscreen_scene_pride:
+        friendly_name: "Dreamscreen Scene Pride"
+        value_template: "{{ is_state('sensor.dreamscreen_scene', 'Pride') }}"
+        turn_on:
+          service: dreamscreen.set_ambient_scene
+          data:
+            entity_id: dreamscreen.dream_screen
+            scene: 4
+        turn_off:
+          service: input_boolean.turn_off
+          data:
+            entity_id: input_boolean.dummy
+        entity_picture_template: >-
+          {% if is_state('sensor.dreamscreen_scene', 'Pride') %}
+            /local/dreamscreen/pride-on.png
+          {% else %}
+            /local/dreamscreen/pride-off.png
+          {% endif %}
+      dreamscreen_scene_july4:
+        friendly_name: "Dreamscreen Scene July4"
+        value_template: "{{ is_state('sensor.dreamscreen_scene', 'July4') }}"
+        turn_on:
+          service: dreamscreen.set_ambient_scene
+          data:
+            entity_id: dreamscreen.dream_screen
+            scene: 5
+        turn_off:
+          service: input_boolean.turn_off
+          data:
+            entity_id: input_boolean.dummy
+        entity_picture_template: >-
+          {% if is_state('sensor.dreamscreen_scene', 'July4') %}
+            /local/dreamscreen/july4-on.png
+          {% else %}
+            /local/dreamscreen/july4-off.png
+          {% endif %}
+      dreamscreen_scene_holiday:
+        friendly_name: "Dreamscreen Scene Holiday"
+        value_template: "{{ is_state('sensor.dreamscreen_scene', 'Holiday') }}"
+        turn_on:
+          service: dreamscreen.set_ambient_scene
+          data:
+            entity_id: dreamscreen.dream_screen
+            scene: 6
+        turn_off:
+          service: input_boolean.turn_off
+          data:
+            entity_id: input_boolean.dummy
+        entity_picture_template: >-
+          {% if is_state('sensor.dreamscreen_scene', 'Holiday') %}
+            /local/dreamscreen/holiday-on.png
+          {% else %}
+            /local/dreamscreen/holiday-off.png
+          {% endif %}
+      dreamscreen_scene_pop:
+        friendly_name: "Dreamscreen Scene Pop"
+        value_template: "{{ is_state('sensor.dreamscreen_scene', 'Pop') }}"
+        turn_on:
+          service: dreamscreen.set_ambient_scene
+          data:
+            entity_id: dreamscreen.dream_screen
+            scene: 7
+        turn_off:
+          service: input_boolean.turn_off
+          data:
+            entity_id: input_boolean.dummy
+        entity_picture_template: >-
+          {% if is_state('sensor.dreamscreen_scene', 'Pop') %}
+            /local/dreamscreen/pop-on.png
+          {% else %}
+            /local/dreamscreen/pop-off.png
+          {% endif %}
+      dreamscreen_scene_forest:
+        friendly_name: "Dreamscreen Scene Forest"
+        value_template: "{{ is_state('sensor.dreamscreen_scene', 'Forest') }}"
+        turn_on:
+          service: dreamscreen.set_ambient_scene
+          data:
+            entity_id: dreamscreen.dream_screen
+            scene: 8
+        turn_off:
+          service: input_boolean.turn_off
+          data:
+            entity_id: input_boolean.dummy
+        entity_picture_template: >-
+          {% if is_state('sensor.dreamscreen_scene', 'Forest') %}
+            /local/dreamscreen/forest-on.png
+          {% else %}
+            /local/dreamscreen/forest-off.png
+          {% endif %}
