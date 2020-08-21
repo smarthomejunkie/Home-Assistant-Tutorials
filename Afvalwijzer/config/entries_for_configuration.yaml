@@ -1,0 +1,52 @@
+##########
+# DO NOT RENAME THIS FILE TO CONFIGURATION.YAML!
+# COPY THIS CODE WITHIN YOUR OWN CONFIGURATION.YAML          
+##########
+
+##########
+# Make sure that customize.yaml is included          
+##########
+homeassistant:
+  customize: !include customize.yaml
+
+##########
+# Custom sensors for trash          
+##########
+sensor:
+  - platform: afvalwijzer # Required
+    provider: afvalstoffendienstkalender # Optional - mijnafvalwijzer (default) or afvalstoffendienstkalender
+    zipcode: 9999XX # Required
+    housenumber: 99 # Required
+    count_today: false # Optional. true or false - Default = false
+
+  - platform: template
+    sensors:
+      trash_first_next_item_formatted:
+        value_template: >-
+          {% if is_state('sensor.trash_first_next_item', 'gft-afval') %}GFT
+          {% elif is_state('sensor.trash_first_next_item', 'papier') %}Papier
+          {% elif is_state('sensor.trash_first_next_item', 'restafval') %}Restafval
+          {% endif %}
+        friendly_name: 'Next pickup item'
+      trash_today_formatted:
+        value_template: >-
+          {% if is_state('sensor.trash_today', 'gft-afval') %}GFT
+          {% elif is_state('sensor.trash_today', 'papier') %}Papier
+          {% elif is_state('sensor.trash_today', 'restafval') %}Restafval
+          {% else %}Geen
+          {% endif %}
+        friendly_name: 'Vandaag'
+      trash_tomorrow_formatted:
+        value_template: >-
+          {% if is_state('sensor.trash_tomorrow', 'gft-afval') %}GFT
+          {% elif is_state('sensor.trash_tomorrow', 'papier') %}Papier
+          {% elif is_state('sensor.trash_tomorrow', 'restafval') %}Restafval
+          {% else %}Geen
+          {% endif %}
+        friendly_name: 'Morgen'
+      today:
+        value_template: '{{ as_timestamp(now()) | timestamp_custom("%d %B %Y", True) }}'
+      trash_next_icon:
+        friendly_name: Days to next pickup
+        value_template: >-
+          {{ 'mdi:numeric-' + states('sensor.trash_first_next_in_days') + '-box-multiple-outline' }}

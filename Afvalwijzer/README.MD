@@ -1,10 +1,10 @@
-# Home-Assistant-Tutorials
-Example code for Home Assistant Tutorials for the Smart Home Junkie channel on Youtube
-
-I will post all the code here that you can use while you follow a tutorial on the Youtube channel.
+# Afvalwijzer code for Home Assistant
+This is the code you need for the integration of Afvalwijzer in Home Assistant. 
 
 If this code helped you in any way, you can support me by subscribing to my YouTube channel. You will find loads of other interesting tutorials there.
 [Smart Home Junkie](https://www.youtube.com/channel/UCVtQ4AOSmCFUuvixddYiSxw)
+
+
 
 ## DISCLAIMER
 * **NEVER REPLACE YOUR FILES BY THE FILES IN THIS REPOSITORY WITHOUT CREATING A BACKUP FIRST!**
