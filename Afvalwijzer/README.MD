@@ -1,6 +1,10 @@
 # Afvalwijzer code for Home Assistant
 This is the code you need for the integration of Afvalwijzer in Home Assistant. 
 
+Please make sure you installed [HACS](https://www.youtube.com/watch?v=hdbYf36lfOc)
+
+With HACS you can install [hui-element](https://github.com/thomasloven/lovelace-hui-element) 
+
 If this code helped you in any way, you can support me by subscribing to my YouTube channel. You will find loads of other interesting tutorials there.
 Visit my YouTube channel: [Smart Home Junkie](https://www.youtube.com/channel/UCVtQ4AOSmCFUuvixddYiSxw)
 
