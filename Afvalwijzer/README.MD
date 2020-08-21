@@ -6,7 +6,7 @@ Visit my YouTube channel: [Smart Home Junkie](https://www.youtube.com/channel/UC
 
 ![](screenshot.png?raw=true)
 
-[<img src="https://cdn.buymeacoffee.com/buttons/default-blue.png" alt="Buy Me A Coffee" style="height: 26px !important;width: 109px !important;" >](https://www.buymeacoffee.com/smarthomejunkie)
+[<img src="https://cdn.buymeacoffee.com/buttons/default-blue.png" alt="Buy Me A Coffee" style="height: 26px !important;width: 109px !important;max-width:50% !important" >](https://www.buymeacoffee.com/smarthomejunkie)
 
 ## DISCLAIMER
 * **NEVER REPLACE YOUR FILES BY THE FILES IN THIS REPOSITORY WITHOUT CREATING A BACKUP FIRST!**
