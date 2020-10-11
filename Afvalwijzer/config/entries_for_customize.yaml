@@ -25,4 +25,4 @@ sensor.afvalwijzer_restafval:
   entity_picture: /local/afvalwijzer/restafval.png
 sensor.afvalwijzer_pmd:
   friendly_name: PMD
-  entity_picture: /local/afvalwijzer/pmd.png
+  entity_picture: /local/afvalwijzer/plastic.png
