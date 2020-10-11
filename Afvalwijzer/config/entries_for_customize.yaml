@@ -3,23 +3,26 @@
 # INSTEAD, COPY THIS CODE WITHIN YOUR OWN CUSTOMIZE.YAML          
 ##########
 
-sensor.trash_today:
+sensor.afvalwijzer_today:
   friendly_name: Vandaag
-sensor.trash_tomorrow:
+sensor.afvalwijzer_tomorrow:
   friendly_name: Morgen
-sensor.trash_first_next_item:
+sensor.afvalwijzer_first_next_item:
   friendly_name: Next pickup item
-sensor.trash_first_next_in_days:
+sensor.afvalwijzer_first_next_in_days:
   friendly_name: Next pickup in days
-input_boolean.trash_reminder:
+input_boolean.afvalwijzer_reminder:
   icon: mdi:reminder
 
-sensor.trash_gft_afval:
+sensor.afvalwijzer_gft:
   friendly_name: GFT
   entity_picture: /local/afvalwijzer/gft.png
-sensor.trash_papier:
+sensor.afvalwijzer_papier:
   friendly_name: Papier
   entity_picture: /local/afvalwijzer/papier.png
-sensor.trash_restafval:
+sensor.afvalwijzer_restafval:
   friendly_name: Restafval
   entity_picture: /local/afvalwijzer/restafval.png
+sensor.afvalwijzer_pmd:
+  friendly_name: PMD
+  entity_picture: /local/afvalwijzer/pmd.png
