@@ -5,7 +5,7 @@ This is the **step by step copy and paste code** you need for the integration of
 
 1. Please make sure you've installed [HACS](https://www.youtube.com/watch?v=hdbYf36lfOc)
 2. Install [Afvalwijzer](https://github.com/xirixiz/Home-Assistant-Sensor-Afvalwijzer) with HACS. (Module written by [xirixiz](https://github.com/xirixiz))
-2. With HACS you can install [hui-element](https://github.com/thomasloven/lovelace-hui-element) which is needed to position some of the elements in your lovelace dashboard.
+2. With HACS you can install [hui-element](https://github.com/thomasloven/lovelace-hui-element) and [auto-enttities](https://github.com/thomasloven/lovelace-auto-entities) which are needed to position some of the elements in your lovelace dashboard.
 3. Restart Home Assistant after you've installed the HACS plugins.
 4. Copy the code in the config folder of this repository to your own configuration.yaml and customize.yaml. 
 5. Copy the images in the config/www folder in this repository to your own config/www folder.
