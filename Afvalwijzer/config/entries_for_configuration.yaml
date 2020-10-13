@@ -28,6 +28,7 @@ sensor:
           {% if is_state('sensor.afvalwijzer_first_next_item', 'gft') %}GFT
           {% elif is_state('sensor.afvalwijzer_first_next_item', 'papier') %}Papier
           {% elif is_state('sensor.afvalwijzer_first_next_item', 'restafval') %}Restafval
+          {% elif is_state('sensor.afvalwijzer_first_next_item', 'plastic') %}Plastic
           {% endif %}
         friendly_name: 'Next pickup item'
       afvalwijzer_today_formatted:
@@ -35,6 +36,7 @@ sensor:
           {% if is_state('sensor.afvalwijzer_today', 'gft') %}GFT
           {% elif is_state('sensor.afvalwijzer_today', 'papier') %}Papier
           {% elif is_state('sensor.afvalwijzer_today', 'restafval') %}Restafval
+          {% elif is_state('sensor.afvalwijzer_first_next_item', 'plastic') %}Plastic
           {% else %}Geen
           {% endif %}
         friendly_name: 'Vandaag'
@@ -43,6 +45,7 @@ sensor:
           {% if is_state('sensor.afvalwijzer_tomorrow', 'gft') %}GFT
           {% elif is_state('sensor.afvalwijzer_tomorrow', 'papier') %}Papier
           {% elif is_state('sensor.afvalwijzer_tomorrow', 'restafval') %}Restafval
+          {% elif is_state('sensor.afvalwijzer_first_next_item', 'plastic') %}Plastic
           {% else %}Geen
           {% endif %}
         friendly_name: 'Morgen'
