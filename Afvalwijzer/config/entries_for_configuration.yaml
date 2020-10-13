@@ -47,7 +47,10 @@ sensor:
           {% endif %}
         friendly_name: 'Morgen'
       today:
-        value_template: '{{ as_timestamp(now()) | timestamp_custom("%d %B %Y", True) }}'
+        value_template: >
+          {% set months = ["januari", "februari", "maart", "april", "mei", "juni", "juli", "augustus", "september", "oktober", "november", "december"] %}
+          {% set month = months[now().strftime('%m') | int -1] %}
+          {{ now().strftime('%d') + ' ' + month + ' '+ now().strftime('%Y') }}
       afvalwijzer_next_icon:
         friendly_name: Days to next pickup
         value_template: >-
