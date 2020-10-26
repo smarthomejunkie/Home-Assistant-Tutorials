@@ -14,7 +14,7 @@ homeassistant:
 ##########
 sensor:
   - platform: afvalwijzer
-    provider: afvalstoffendienstkalender    # (required, default = mijnafvalwijzer) either choose mijnafvalwijzer or afvalstoffendienstkalender
+    provider: afvalstoffendienstkalender    # (required, default = mijnafvalwijzer) either choose mijnafvalwijzer, rova or afvalstoffendienstkalender
     postal_code: 1111AA                     # (required, default = '')
     street_number:  11                      # (required, default = '')
     suffix: A                               # (optional, default = '')
