@@ -12,12 +12,12 @@ entities:
 
       <ha-icon icon= {{states('sensor.afvalwijzer_next_icon')}}> </ha-icon>
       Volgende afval-ophaaldag over
-      **{{states('sensor.afvalwijzer_first_next_in_days')}}** {{'dag' if
-      states('sensor.afvalwijzer_first_next_in_days') == '1' else 'dagen'}} op:
+      **{{states('sensor.afvalwijzer_next_in_days')}}** {{'dag' if
+      states('sensor.afvalwijzer_next_in_days') == '1' else 'dagen'}} op:
 
       <ha-icon icon= 'mdi:delete-alert'> </ha-icon>
-      {{states('sensor.afvalwijzer_first_next_date')}}:
-      **{{states('sensor.afvalwijzer_first_next_item') | capitalize}}**
+      {{states('sensor.afvalwijzer_next_date')}}:
+      **{{states('sensor.afvalwijzer_next_item') | capitalize}}**
     style: |
       ha-card {
         box-shadow: none;
