@@ -1,7 +1,3 @@
-##########
-# Code to add to your lovelace dashboard. Add a manual custom card and paste this code within that card        
-##########
-
 entities:
   - card_type: markdown
     content: >
@@ -12,8 +8,9 @@ entities:
 
       <ha-icon icon= {{states('sensor.afvalwijzer_next_icon')}}> </ha-icon>
       Volgende afval-ophaaldag over
-      **{{states('sensor.afvalwijzer_next_in_days')}}** {{'dag' if
-      states('sensor.afvalwijzer_next_in_days') == '1' else 'dagen'}} op:
+      **{{states('sensor.afvalwijzer_days_until_collection_date')}}** {{'dag' if
+      states('sensor.afvalwijzer_days_until_collection_date') == '1' else
+      'dagen'}} op:
 
       <ha-icon icon= 'mdi:delete-alert'> </ha-icon>
       {{states('sensor.afvalwijzer_next_date')}}:

@@ -30,7 +30,6 @@ sensor:
           {% if is_state('sensor.afvalwijzer_first_next_item', 'gft') %}GFT
           {% elif is_state('sensor.afvalwijzer_first_next_item', 'papier') %}Papier
           {% elif is_state('sensor.afvalwijzer_first_next_item', 'restafval') %}Restafval
-          {% elif is_state('sensor.afvalwijzer_first_next_item', 'plastic') %}Plastic
           {% endif %}
         friendly_name: 'Next pickup item'
       afvalwijzer_today_formatted:
@@ -38,7 +37,6 @@ sensor:
           {% if is_state('sensor.afvalwijzer_today', 'gft') %}GFT
           {% elif is_state('sensor.afvalwijzer_today', 'papier') %}Papier
           {% elif is_state('sensor.afvalwijzer_today', 'restafval') %}Restafval
-          {% elif is_state('sensor.afvalwijzer_first_next_item', 'plastic') %}Plastic
           {% else %}Geen
           {% endif %}
         friendly_name: 'Vandaag'
@@ -47,16 +45,49 @@ sensor:
           {% if is_state('sensor.afvalwijzer_tomorrow', 'gft') %}GFT
           {% elif is_state('sensor.afvalwijzer_tomorrow', 'papier') %}Papier
           {% elif is_state('sensor.afvalwijzer_tomorrow', 'restafval') %}Restafval
-          {% elif is_state('sensor.afvalwijzer_first_next_item', 'plastic') %}Plastic
           {% else %}Geen
           {% endif %}
         friendly_name: 'Morgen'
       today:
-        value_template: >
+        value_template: >-
           {% set months = ["januari", "februari", "maart", "april", "mei", "juni", "juli", "augustus", "september", "oktober", "november", "december"] %}
           {% set month = months[now().strftime('%m') | int -1] %}
           {{ now().strftime('%d') + ' ' + month + ' '+ now().strftime('%Y') }}
+      afvalwijzer_days_until_collection_date:
+        value_template: >-
+          {% set days_until_collection_date = 100 %}
+          {% if (state_attr('sensor.afvalwijzer_gft', 'days_until_collection_date') < days_until_collection_date) %}
+            {% set days_until_collection_date = state_attr('sensor.afvalwijzer_gft', 'days_until_collection_date') %}
+          {% endif %}
+          {% if (state_attr('sensor.afvalwijzer_papier', 'days_until_collection_date') < days_until_collection_date) %}
+            {% set days_until_collection_date = state_attr('sensor.afvalwijzer_papier', 'days_until_collection_date') %}
+          {% endif %}
+          {% if (state_attr('sensor.afvalwijzer_restafval', 'days_until_collection_date') < days_until_collection_date) %}
+            {% set days_until_collection_date = state_attr('sensor.afvalwijzer_restafval', 'days_until_collection_date') %}
+          {% endif %}
+          {{ days_until_collection_date }}
+      afvalwijzer_next_date:
+        value_template: >-
+          {% set next_date = states('sensor.afvalwijzer_gft') %}
+          {% if (states('sensor.afvalwijzer_restafval') < next_date) %}
+            {% set next_date = states('sensor.afvalwijzer_restafval') %}
+          {% endif %}
+          {% if (states('sensor.afvalwijzer_papier') < next_date) %}
+            {% set next_date = states('sensor.afvalwijzer_papier') %}
+          {% endif %}
+          {{ next_date }}
+      afvalwijzer_next_item:
+        value_template: >-
+          {% set next_date = states('sensor.afvalwijzer_gft') %}
+          {% set next_item = state_attr('sensor.afvalwijzer_gft','friendly_name') %}
+          {% if (states('sensor.afvalwijzer_restafval') < next_date) %}
+            {% set next_item = state_attr('sensor.afvalwijzer_restafval','friendly_name') %}
+          {% endif %}
+          {% if (states('sensor.afvalwijzer_papier') < next_date) %}
+            {% set next_item = state_attr('sensor.afvalwijzer_papier','friendly_name') %}
+          {% endif %}
+          {{ next_item }} 
       afvalwijzer_next_icon:
         friendly_name: Days to next pickup
         value_template: >-
-          {{ 'mdi:numeric-' + states('sensor.afvalwijzer_next_in_days') + '-box-multiple-outline' }}
+          {{ 'mdi:numeric-' + states('sensor.afvalwijzer_days_until_collection_date') + '-box-multiple-outline' }}
