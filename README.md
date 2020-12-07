@@ -9,7 +9,7 @@ I will post all the code here that you can use while you follow a tutorial on th
 * [Afvalwijzer](https://github.com/smarthomejunkie/Home-Assistant-Tutorials/tree/master/Afvalwijzer)
 
 If this code helped you in any way, you can support me by subscribing to my YouTube channel. You will find loads of other interesting tutorials there.
-Visit my YouTube channel: [Smart Home Junkie](https://www.youtube.com/channel/UCVtQ4AOSmCFUuvixddYiSxw)
+Visit my YouTube channel: [Smart Home Junkie](https://www.youtube.com/c/SmartHomeJunkie)
 
 <a href="https://www.buymeacoffee.com/smarthomejunkie" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-blue.png" alt="Buy Me A Coffee" height="51" width="217" ></a>
 
