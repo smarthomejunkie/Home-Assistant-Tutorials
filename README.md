@@ -3,6 +3,11 @@ Example code for Home Assistant Tutorials for the Smart Home Junkie channel on Y
 
 I will post all the code here that you can use while you follow a tutorial on the Youtube channel.
 
+* [Alarm System](https://github.com/smarthomejunkie/Home-Assistant-Tutorials/tree/master/Alarm-System) 
+* [Mailbox Automation](https://github.com/smarthomejunkie/Home-Assistant-Tutorials/tree/master/Mailbox-Automation)
+* [Dreamscreen](https://github.com/smarthomejunkie/Home-Assistant-Tutorials/tree/master/Dreamscreen)
+* [Afvalwijzer](https://github.com/smarthomejunkie/Home-Assistant-Tutorials/tree/master/Afvalwijzer)
+
 If this code helped you in any way, you can support me by subscribing to my YouTube channel. You will find loads of other interesting tutorials there.
 Visit my YouTube channel: [Smart Home Junkie](https://www.youtube.com/channel/UCVtQ4AOSmCFUuvixddYiSxw)
 
