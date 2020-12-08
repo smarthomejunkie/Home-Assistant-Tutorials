@@ -1,7 +1,7 @@
 # Mailbox automation code for Home Assistant
 This is the code you need for the mailbox automation in Home Assistant.
 
-The tutorial that goes with this code can be viewed [here](#) (Next video to be published... stay tuned!)
+The tutorial that goes with this code can be viewed [here](https://www.youtube.com/watch?v=-4KGdPh6ur0)
 
 If this code helped you in any way, you can support me by subscribing to my YouTube channel. You will find loads of other interesting tutorials there.
 Visit my YouTube channel: [Smart Home Junkie](https://www.youtube.com/channel/UCVtQ4AOSmCFUuvixddYiSxw)
