@@ -76,17 +76,6 @@ sensor:
             {% set next_date = states('sensor.afvalwijzer_papier') %}
           {% endif %}
           {{ next_date }}
-      afvalwijzer_next_item:
-        value_template: >-
-          {% set next_date = states('sensor.afvalwijzer_gft') %}
-          {% set next_item = state_attr('sensor.afvalwijzer_gft','friendly_name') %}
-          {% if (states('sensor.afvalwijzer_restafval') < next_date) %}
-            {% set next_item = state_attr('sensor.afvalwijzer_restafval','friendly_name') %}
-          {% endif %}
-          {% if (states('sensor.afvalwijzer_papier') < next_date) %}
-            {% set next_item = state_attr('sensor.afvalwijzer_papier','friendly_name') %}
-          {% endif %}
-          {{ next_item }} 
       afvalwijzer_next_icon:
         friendly_name: Days to next pickup
         value_template: >-
