@@ -53,30 +53,8 @@ sensor:
           {% set months = ["januari", "februari", "maart", "april", "mei", "juni", "juli", "augustus", "september", "oktober", "november", "december"] %}
           {% set month = months[now().strftime('%m') | int -1] %}
           {{ now().strftime('%d') + ' ' + month + ' '+ now().strftime('%Y') }}
-      afvalwijzer_days_until_collection_date:
-        value_template: >-
-          {% set days_until_collection_date = 100 %}
-          {% if (state_attr('sensor.afvalwijzer_gft', 'days_until_collection_date') < days_until_collection_date) %}
-            {% set days_until_collection_date = state_attr('sensor.afvalwijzer_gft', 'days_until_collection_date') %}
-          {% endif %}
-          {% if (state_attr('sensor.afvalwijzer_papier', 'days_until_collection_date') < days_until_collection_date) %}
-            {% set days_until_collection_date = state_attr('sensor.afvalwijzer_papier', 'days_until_collection_date') %}
-          {% endif %}
-          {% if (state_attr('sensor.afvalwijzer_restafval', 'days_until_collection_date') < days_until_collection_date) %}
-            {% set days_until_collection_date = state_attr('sensor.afvalwijzer_restafval', 'days_until_collection_date') %}
-          {% endif %}
-          {{ days_until_collection_date }}
-      afvalwijzer_next_date:
-        value_template: >-
-          {% set next_date = states('sensor.afvalwijzer_gft') %}
-          {% if (states('sensor.afvalwijzer_restafval') < next_date) %}
-            {% set next_date = states('sensor.afvalwijzer_restafval') %}
-          {% endif %}
-          {% if (states('sensor.afvalwijzer_papier') < next_date) %}
-            {% set next_date = states('sensor.afvalwijzer_papier') %}
-          {% endif %}
-          {{ next_date }}
+
       afvalwijzer_next_icon:
         friendly_name: Days to next pickup
         value_template: >-
-          {{ 'mdi:numeric-' + states('sensor.afvalwijzer_days_until_collection_date') + '-box-multiple-outline' }}
+          {{ 'mdi:numeric-' + states('sensor.afvalwijzer_next_in_days') + '-box-multiple-outline' }}
