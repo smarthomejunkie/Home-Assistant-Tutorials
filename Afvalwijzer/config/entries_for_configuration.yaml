@@ -55,6 +55,6 @@ sensor:
           {{ now().strftime('%d') + ' ' + month + ' '+ now().strftime('%Y') }}
 
       afvalwijzer_next_icon:
-        friendly_name: Days to next pickup
+        friendly_name: Icon for next days to pickup
         value_template: >-
           {{ 'mdi:numeric-' + states('sensor.afvalwijzer_next_in_days') + '-box-multiple-outline' }}
