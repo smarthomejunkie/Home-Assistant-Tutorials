@@ -1,7 +1,7 @@
 # Automate Like A Pro in Home Assistant
 This is the file with code you need for your custom button card on your lovelace dashboard 
 
-The instructions for this tutorial can be found [in this YouTube video](https://).
+The instructions for this tutorial can be found [in this YouTube video](https://youtu.be/lkMoEQmsqIk).
 
 <a href="https://www.buymeacoffee.com/smarthomejunkie" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-blue.png" alt="Buy Me A Coffee" height="51" width="217" ></a>
 
