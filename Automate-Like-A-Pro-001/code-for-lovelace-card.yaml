@@ -1,0 +1,14 @@
+type: entities
+entities:
+  - entity: input_boolean.office_automation_active
+header:
+  type: 'custom:button-card'
+  entity: input_boolean.power_office
+  show_state: false
+  name: Office
+  icon: 'mdi:power'
+  state:
+    - value: 'on'
+      color: lawngreen
+    - value: 'off'
+      color: grey
