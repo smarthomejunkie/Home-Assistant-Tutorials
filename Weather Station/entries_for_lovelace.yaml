@@ -1,0 +1,57 @@
+cards:
+  - animate: true
+    color_thresholds:
+      - color: '#00BFFF'
+        value: 0
+      - color: '#008000'
+        value: 15
+      - color: '#7CFC00'
+        value: 20
+      - color: '#FFA500'
+        value: 25
+      - color: '#FF0000'
+        value: 28
+    entities:
+      - sensor.office_temperature
+    group_by: hour
+    hour24: true
+    name: Temp
+    show:
+      fill: fade
+    type: 'custom:mini-graph-card'
+  - animate: true
+    color_thresholds:
+      - color: '#FF0000'
+        value: 0
+      - color: '#FFA500'
+        value: 40
+      - color: '#7CFC00'
+        value: 60
+      - color: '#800080'
+        value: 70
+    entities:
+      - sensor.office_humidity
+    group_by: hour
+    hour24: true
+    name: Humidity
+    show:
+      fill: fade
+    type: 'custom:mini-graph-card'
+  - animate: true
+    color_thresholds:
+      - color: '#FF0000'
+        value: 950
+      - color: '#FFA500'
+        value: 985
+      - color: '#7CFC00'
+        value: 1025
+    entities:
+      - sensor.office_pressure
+    group_by: hour
+    hour24: true
+    name: Pressure
+    show:
+      fill: fade
+    type: 'custom:mini-graph-card'
+type: horizontal-stack
+title: Office

@@ -7,6 +7,7 @@ I will post all the code here that you can use while you follow a tutorial on th
 * [Mailbox Automation](https://github.com/smarthomejunkie/Home-Assistant-Tutorials/tree/master/Mailbox-Automation)
 * [Dreamscreen](https://github.com/smarthomejunkie/Home-Assistant-Tutorials/tree/master/Dreamscreen)
 * [Afvalwijzer](https://github.com/smarthomejunkie/Home-Assistant-Tutorials/tree/master/Afvalwijzer)
+* [Weather Station](https://github.com/smarthomejunkie/Home-Assistant-Tutorials/tree/master/Weather-Station)
 * [Automate Like A Pro #01](https://github.com/smarthomejunkie/Home-Assistant-Tutorials/tree/master/Automate-Like-A-Pro-001)
 
 If this code helped you in any way, you can support me by subscribing to my YouTube channel. You will find loads of other interesting tutorials there.
