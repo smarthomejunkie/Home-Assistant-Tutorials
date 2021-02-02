@@ -1,0 +1,8 @@
+type: 'custom:slider-entity-row'
+entity: light.office_back
+name: Office back
+tap_action:
+  action: call-service
+  service: light.toggle
+  service_data:
+    entity_id: light.office_back
