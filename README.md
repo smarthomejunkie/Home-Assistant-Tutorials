@@ -10,6 +10,7 @@ I will post all the code here that you can use while you follow a tutorial on th
 * [Weather Station](https://github.com/smarthomejunkie/Home-Assistant-Tutorials/tree/master/Weather-Station)
 * [Automate Like A Pro #01](https://github.com/smarthomejunkie/Home-Assistant-Tutorials/tree/master/Automate-Like-A-Pro-001)
 * [Install HACS in Home Assistant](https://github.com/smarthomejunkie/Home-Assistant-Tutorials/tree/master/HACS)
+* [INSANE STATISTICS in Home Assistant](https://github.com/smarthomejunkie/Home-Assistant-Tutorials/tree/master/Insane-Statistics-In-Home-Assistant)
 
 If this code helped you in any way, you can support me by subscribing to my YouTube channel. You will find loads of other interesting tutorials there.
 Visit my YouTube channel: [Smart Home Junkie](https://www.youtube.com/c/SmartHomeJunkie)

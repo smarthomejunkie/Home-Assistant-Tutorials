@@ -1,0 +1,18 @@
+##########
+# DO NOT RENAME THIS FILE TO CONFIGURATION.YAML! YOU WILL BREAK YOUR CONFIG IF YOU DO SO!
+# INSTEAD, COPY THIS CODE WITHIN YOUR OWN SECRETS.YAML          
+##########
+
+influxdb:
+  host: a0d7b954-influxdb
+  port: 8086
+  database: homeassistant
+  username: homeassistant
+  password: !secret influxdb_password
+  max_retries: 3
+  default_measurement: state
+  include:
+    entities:
+      - sensor.processor_use # example
+      - sensor.memory_use_percent # example
+      - sensor.disk_use_percent_home # example

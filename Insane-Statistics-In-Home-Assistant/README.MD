@@ -1,9 +1,9 @@
-# No more Hostory Loss in Home Assistant
-This is the file with code you need for your configuration.yaml
+# Insane Statistics code for Home Assistant
+This is the code you need for the Grafana Satistics in Home Assistant. 
 
-The instructions for this tutorial can be found [in this YouTube video](https://youtu.be/0Nf70avId0w).
+The instructions to setup the statistics can be found [in this YouTube video](https://youtu.be/rXF-LycbjoA).
 
-If this helped and saved you time, you can support me by buying me a coffee. I'd really appreciate that. 
+You can support me by b
 <a href="https://www.buymeacoffee.com/smarthomejunkie" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-blue.png" alt="Buy Me A Coffee" height="51" width="217" ></a>
 
 ## DISCLAIMER

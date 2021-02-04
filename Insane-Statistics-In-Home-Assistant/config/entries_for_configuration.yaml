@@ -1,0 +1,59 @@
+##########
+# DO NOT RENAME THIS FILE TO CONFIGURATION.YAML! YOU WILL BREAK YOUR CONFIG IF YOU DO SO!
+# INSTEAD, COPY THIS CODE WITHIN YOUR OWN CONFIGURATION.YAML          
+##########
+
+##########
+# Make sure that customize.yaml is included          
+##########
+homeassistant:
+  customize: !include customize.yaml
+
+##########
+# Custom sensors for afvalwijzer          
+##########
+sensor:
+  - platform: afvalwijzer
+    provider: afvalstoffendienstkalender    # (required, default = mijnafvalwijzer) either choose mijnafvalwijzer, rova or afvalstoffendienstkalender
+    postal_code: 1111AA                     # (required, default = '')
+    street_number:  11                      # (required, default = '')
+    suffix: A                               # (optional, default = '')
+    include_date_today: false               # (optional, default = false) to take or not to take Today into account in the next pickup.
+    default_label: Geen
+#    id: somestring                          # (optional, default = '') use if you'd like to have multiple waste pickup locations in HASS       
+
+  - platform: template
+    sensors:
+      afvalwijzer_first_next_item_formatted:
+        value_template: >-
+          {% if is_state('sensor.afvalwijzer_first_next_item', 'gft') %}GFT
+          {% elif is_state('sensor.afvalwijzer_first_next_item', 'papier') %}Papier
+          {% elif is_state('sensor.afvalwijzer_first_next_item', 'restafval') %}Restafval
+          {% endif %}
+        friendly_name: 'Next pickup item'
+      afvalwijzer_today_formatted:
+        value_template: >-
+          {% if is_state('sensor.afvalwijzer_today', 'gft') %}GFT
+          {% elif is_state('sensor.afvalwijzer_today', 'papier') %}Papier
+          {% elif is_state('sensor.afvalwijzer_today', 'restafval') %}Restafval
+          {% else %}Geen
+          {% endif %}
+        friendly_name: 'Vandaag'
+      afvalwijzer_tomorrow_formatted:
+        value_template: >-
+          {% if is_state('sensor.afvalwijzer_tomorrow', 'gft') %}GFT
+          {% elif is_state('sensor.afvalwijzer_tomorrow', 'papier') %}Papier
+          {% elif is_state('sensor.afvalwijzer_tomorrow', 'restafval') %}Restafval
+          {% else %}Geen
+          {% endif %}
+        friendly_name: 'Morgen'
+      today:
+        value_template: >-
+          {% set months = ["januari", "februari", "maart", "april", "mei", "juni", "juli", "augustus", "september", "oktober", "november", "december"] %}
+          {% set month = months[now().strftime('%m') | int -1] %}
+          {{ now().strftime('%d') + ' ' + month + ' '+ now().strftime('%Y') }}
+
+      afvalwijzer_next_icon:
+        friendly_name: Icon for next days to pickup
+        value_template: >-
+          {{ 'mdi:numeric-' + states('sensor.afvalwijzer_next_in_days') + '-box-multiple-outline' }}
