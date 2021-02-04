@@ -4,6 +4,7 @@ This is the code you need for the Grafana Satistics in Home Assistant.
 The instructions to setup the statistics can be found [in this YouTube video](https://youtu.be/rXF-LycbjoA).
 
 If this helped and saved you time, you can support me by buying me a coffee. I'd really appreciate that.
+
 <a href="https://www.buymeacoffee.com/smarthomejunkie" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-blue.png" alt="Buy Me A Coffee" height="51" width="217" ></a>
 
 ## DISCLAIMER
