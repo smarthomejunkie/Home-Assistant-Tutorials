@@ -11,8 +11,3 @@ influxdb:
   password: !secret influxdb_password
   max_retries: 3
   default_measurement: state
-  include:
-    entities:
-      - sensor.processor_use # example
-      - sensor.memory_use_percent # example
-      - sensor.disk_use_percent_home # example
