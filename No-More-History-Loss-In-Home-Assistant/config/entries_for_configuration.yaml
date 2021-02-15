@@ -1,6 +1,22 @@
 ##########
 # DO NOT RENAME THIS FILE TO CONFIGURATION.YAML! YOU WILL BREAK YOUR CONFIG IF YOU DO SO!
-# INSTEAD, COPY THIS CODE WITHIN YOUR OWN SECRETS.YAML          
+# INSTEAD, COPY THIS CODE WITHIN YOUR OWN CONFIGURATION.YAML          
 ##########
 
-mariadb_url: 'mysql://yourusername:yourpassword@core-mariadb/homeassistant?charset=utf8'
+recorder:
+  db_url: !secret mariadb_url
+  commit_interval: 30
+# below are some examples of includes. You can enter your own sensors here.
+  include:
+    domains:
+      - automation
+      - updater
+    entities:
+      - sensor.processor_use
+      - sensor.memory_use_percent
+      - sensor.disk_use_percent_home
+      - sensor.cpu_temperature
+      - sensor.solaredge_current_power
+      - sensor.br_rain_last_hour
+      - sensor.br_rain_last_24h
+      - sensor.br_pressure
