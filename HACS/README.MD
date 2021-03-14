@@ -1,7 +1,7 @@
 # Install HACS in Home Assistant
 This is the code you need for installinmg HACS in Home Assistant. 
 
-wget -q -O - https://hacs.xyz/install | bash -
+wget -q -O - https://install.hacs.xyz | bash -
 
 The instructions to install HACS can be found [in this YouTube video](https://youtu.be/BNQw--FCp24).
 
