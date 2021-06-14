@@ -87,5 +87,6 @@ entities:
     sort:
       attribute: days_until_collection_date
       method: attribute
+      numeric: true
     type: 'custom:hui-element'
 type: entities
