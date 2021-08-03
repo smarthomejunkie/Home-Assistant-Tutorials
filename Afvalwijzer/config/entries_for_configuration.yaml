@@ -52,7 +52,19 @@ sensor:
           {% set months = ["januari", "februari", "maart", "april", "mei", "juni", "juli", "augustus", "september", "oktober", "november", "december"] %}
           {% set month = months[now().strftime('%m') | int -1] %}
           {{ now().strftime('%d') + ' ' + month + ' '+ now().strftime('%Y') }}
-
+      afvalwijzer_days_until_collection_date:
+        value_template: >-
+          {% set days_until_collection_date = 100 %}
+          {% if (state_attr('sensor.afvalwijzer_gft', 'days_until_collection_date') | int < days_until_collection_date) %}
+            {% set days_until_collection_date = state_attr('sensor.afvalwijzer_gft', 'days_until_collection_date') %}
+          {% endif %}
+          {% if (state_attr('sensor.afvalwijzer_papier', 'days_until_collection_date') | int < days_until_collection_date) %}
+            {% set days_until_collection_date = state_attr('sensor.afvalwijzer_papier', 'days_until_collection_date') %}
+          {% endif %}
+          {% if (state_attr('sensor.afvalwijzer_restafval', 'days_until_collection_date') | int < days_until_collection_date) %}
+            {% set days_until_collection_date = state_attr('sensor.afvalwijzer_restafval', 'days_until_collection_date') %}
+          {% endif %}
+          {{ days_until_collection_date }}
       afvalwijzer_next_icon:
         friendly_name: Icon for next days to pickup
         value_template: >-
