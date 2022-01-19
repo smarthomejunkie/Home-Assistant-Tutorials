@@ -3,6 +3,26 @@ This is the **step by step copy and paste code** you need for the integration of
 
 ![](screenshot.png?raw=true)
 
+Supported services are:
+* mijnafvalwijzer
+* afvalstoffendienstkalender (all)
+* rova
+* acv
+* almere
+* areareiniging
+* avalex
+* avri
+* bar
+* hellendoorn
+* meerlanden
+* meppel
+* rad
+* twentemilieu
+* waardlanden
+* westland
+* ximmio
+* reinis
+
 1. Please make sure you've installed [HACS](https://youtu.be/BNQw--FCp24)
 2. Install [Afvalwijzer](https://github.com/xirixiz/Home-Assistant-Sensor-Afvalwijzer) with HACS. (Module written by [xirixiz](https://github.com/xirixiz))
 2. With HACS you can install [hui-element](https://github.com/thomasloven/lovelace-hui-element) and [auto-enttities](https://github.com/thomasloven/lovelace-auto-entities) which are needed to position some of the elements in your lovelace dashboard.
