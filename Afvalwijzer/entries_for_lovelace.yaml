@@ -14,7 +14,7 @@ entities:
 
       <ha-icon icon= 'mdi:delete-alert'> </ha-icon>
       {{states('sensor.afvalwijzer_next_date')}}:
-      **{{states('sensor.afvalwijzer_next_item') | capitalize}}**
+      **{{states('sensor.afvalwijzer_next_type') | capitalize}}**
     style: |
       ha-card {
         box-shadow: none;
