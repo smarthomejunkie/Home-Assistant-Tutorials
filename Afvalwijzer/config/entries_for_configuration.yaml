@@ -56,14 +56,20 @@ sensor:
       afvalwijzer_days_until_collection_date:
         value_template: >-
           {% set days_until_collection_date = 100 %}
-          {% if (state_attr('sensor.afvalwijzer_gft', 'days_until_collection_date') | int < days_until_collection_date) %}
-            {% set days_until_collection_date = state_attr('sensor.afvalwijzer_gft', 'days_until_collection_date') %}
+          {% if (state_attr('sensor.afvalwijzer_gft', 'days_until_collection_date') != 'None') %}
+            {% if (state_attr('sensor.afvalwijzer_gft', 'days_until_collection_date') | int < days_until_collection_date) %}
+              {% set days_until_collection_date = state_attr('sensor.afvalwijzer_gft', 'days_until_collection_date') %}
+            {% endif %}
           {% endif %}
-          {% if (state_attr('sensor.afvalwijzer_papier', 'days_until_collection_date') | int < days_until_collection_date) %}
-            {% set days_until_collection_date = state_attr('sensor.afvalwijzer_papier', 'days_until_collection_date') %}
+          {% if (state_attr('sensor.afvalwijzer_papier', 'days_until_collection_date') != 'None') %}
+            {% if (state_attr('sensor.afvalwijzer_papier', 'days_until_collection_date') | int < days_until_collection_date) %}
+              {% set days_until_collection_date = state_attr('sensor.afvalwijzer_papier', 'days_until_collection_date') %}
+            {% endif %}
           {% endif %}
-          {% if (state_attr('sensor.afvalwijzer_restafval', 'days_until_collection_date') | int < days_until_collection_date) %}
-            {% set days_until_collection_date = state_attr('sensor.afvalwijzer_restafval', 'days_until_collection_date') %}
+          {% if (state_attr('sensor.afvalwijzer_restafval', 'days_until_collection_date') != 'None') %}
+            {% if (state_attr('sensor.afvalwijzer_restafval', 'days_until_collection_date') | int < days_until_collection_date) %}
+              {% set days_until_collection_date = state_attr('sensor.afvalwijzer_restafval', 'days_until_collection_date') %}
+            {% endif %}
           {% endif %}
           {{ days_until_collection_date }}
       afvalwijzer_next_icon:
