@@ -3,7 +3,11 @@ This is the **step by step copy and paste code** you need for the integration of
 
 ![](screenshot.png?raw=true)
 
+All credits for coding the integration go to [Xirixiz](https://github.com/xirixiz/Home-Assistant-Sensor-Afvalwijzer). 
+I did not write this integration. I just created some code for you to copy and paste to make it look nice in Home Assistant. 
+
 Supported services are:
+
 * mijnafvalwijzer
 * afvalstoffendienstkalender (all)
 * rova
@@ -22,6 +26,31 @@ Supported services are:
 * westland
 * ximmio
 * reinis
+* alkmaar
+* alphenaandenrijn
+* berkelland
+* blink
+* cranendonck
+* cyclus
+* dar
+* denhaag
+* gad
+* hvc
+* lingewaard
+* middelburgngen
+* montfoort
+* peelenmaas
+* prezero
+* purmerend
+* rmn
+* schouwenand
+* spaarnelanden
+* sudwestfryslan
+* suez
+* venray
+* voorschoten
+* waalre
+* zrd
 
 1. Please make sure you've installed [HACS](https://youtu.be/BNQw--FCp24)
 2. Install [Afvalwijzer](https://github.com/xirixiz/Home-Assistant-Sensor-Afvalwijzer) with HACS. (Module written by [xirixiz](https://github.com/xirixiz))
