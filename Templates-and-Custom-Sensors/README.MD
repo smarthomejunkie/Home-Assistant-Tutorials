@@ -29,7 +29,7 @@ The custom sensor code used in the video is:
 	      value_template: >-
 	        {{ states('sensor.kitchen_motion_sensor_battery_level') }}
 	      icon_template: >-
-	        {% set batterylevel = ((states('sensor.kitchen_motion_sensor_battery_level') | int) / 10) | round(0,"floor") * 10 %}
+	        {% set batterylevel = ((states('sensor.kitchen_motion_sensor_battery_level') | int) / 10) | round(0) * 10 %}
 	        {% if batterylevel == 100 %}
 	          mdi:battery
 	        {% else %}
