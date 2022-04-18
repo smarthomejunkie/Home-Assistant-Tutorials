@@ -6,7 +6,7 @@ The instructions for this tutorial can be found [in this YouTube video](https://
 
 If this helped and saved you time, you can support me by becoming my Patron. I'd really appreciate that.
 
-<a href="https://www.patreon.com/bePatron?u=50155158" target="_blank"><img src="https://github.com/smarthomejunkie/Home-Assistant-Tutorials/tree/master/Templates-and-Custom-Sensors/become-a-patron.png" alt="Become a Patron!"></a>
+<a href="https://www.patreon.com/bePatron?u=50155158" target="_blank"><img src="https://github.com/smarthomejunkie/Home-Assistant-Tutorials/blob/master/Templates-and-Custom-Sensors/become-a-patron.png?raw=true" alt="Become a Patron!"></a>
 
 The custom sensor code used in the video is:
  
