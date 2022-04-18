@@ -6,7 +6,7 @@ The instructions for this tutorial can be found [in this YouTube video](https://
 
 If this helped and saved you time, you can support me by becoming my Patron. I'd really appreciate that.
 
-Please visit [Patreon](https://www.patreon.com/smarthomejunkie) to sponsor me.
+<a href="https://www.patreon.com/bePatron?u=50155158" data-patreon-widget-type="become-patron-button">Become a Patron!</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
 
 The custom sensor code used in the video is:
  
