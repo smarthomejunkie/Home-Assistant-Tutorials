@@ -5,8 +5,11 @@ The tutorial that goes with this code can be viewed [here](https://www.youtube.c
 
 Get the [Aqara Door Sensor](https://s.click.aliexpress.com/e/_A26g2H)
 
-If this code helped you in any way, you can support me by subscribing to my YouTube channel. You will find loads of other interesting tutorials there.
 Visit my YouTube channel: [Smart Home Junkie](https://www.youtube.com/channel/UCVtQ4AOSmCFUuvixddYiSxw)
+
+If this helped and saved you time, you can support me by becoming my Patron. I'd really appreciate that.
+
+<a href="https://www.patreon.com/bePatron?u=50155158" target="_blank"><img src="https://github.com/smarthomejunkie/Home-Assistant-Tutorials/blob/master/become-a-patron.png?raw=true" alt="Become a Patron!"></a>
 
 
 <a href="https://www.buymeacoffee.com/smarthomejunkie" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-blue.png" alt="Buy Me A Coffee" height="51" width="217" ></a>

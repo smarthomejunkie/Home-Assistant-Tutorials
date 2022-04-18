@@ -3,6 +3,10 @@ This is the file with code you need for your custom button card on your lovelace
 
 The instructions for this tutorial can be found [in this YouTube video](https://youtu.be/YRcOadzMX2Q).
 
+If this helped and saved you time, you can support me by becoming my Patron. I'd really appreciate that.
+
+<a href="https://www.patreon.com/bePatron?u=50155158" target="_blank"><img src="https://github.com/smarthomejunkie/Home-Assistant-Tutorials/blob/master/become-a-patron.png?raw=true" alt="Become a Patron!"></a>
+
 <a href="https://www.buymeacoffee.com/smarthomejunkie" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-blue.png" alt="Buy Me A Coffee" height="51" width="217" ></a>
 
 ## DISCLAIMER
