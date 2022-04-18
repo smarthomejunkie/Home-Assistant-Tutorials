@@ -3,6 +3,7 @@
 The instructions for this tutorial can be found [in this YouTube video](https://youtu.be/cdz32TLu_gw).
 
 If this helped and saved you time, you can support me by becoming my Patron. I'd really appreciate that.
+
 Please visit [Patreon](https://www.patreon.com/smarthomejunkie) to sponsor me.
 
 The custom sensor code used in the video is:
@@ -29,14 +30,46 @@ The custom sensor code used in the video is:
 	      value_template: >-
 	        {{ states('sensor.kitchen_motion_sensor_battery_level') }}
 	      icon_template: >-
-	        {% set batterylevel = ((states('sensor.kitchen_motion_sensor_battery_level') | int) / 10) | round(0) * 10 %}
-	        {% if batterylevel == 100 %}
-	          mdi:battery
-	        {% else %}
-	          mdi:battery-{{batterylevel}}
-	        {% endif %}
+			{% set batterylevel = ((states('sensor.kitchen_motion_sensor_battery_level') | int) / 10) | round(0) * 10 %}
+			{% if batterylevel == 100 %}
+			mdi:battery
+			{% elif batterylevel == 0 %}
+			mdi:battery-low
+			{% else %}
+			mdi:battery-{{batterylevel}}
+			{% endif %}
 	      unit_of_measurement: "%"
-	      
+
+The code that is used in the Developer Tools template editor is:
+
+	{{ states('binary_sensor.smarthomejunkie_presence') }}
+	{{ state_attr('binary_sensor.smarthomejunkie_presence','temperature') }}
+
+	{% if states('binary_sensor.smarthomejunkie_presence') == 'on' %}
+	There's motion detected!
+	{% else %}
+	There is no motion at the moment
+	{% endif %}
+
+	{{ states.light 
+			| rejectattr('attributes.is_deconz_group', 'eq', true)
+			| rejectattr('attributes.entity_id', 'defined') 
+			| selectattr('state', 'eq', 'on')
+			| list | count }}
+
+	{{ ( ( states('sensor.kitchen_motion_sensor_battery_level') | int) / 10) | round(0) * 10 }}%
+
+	{% set batterylevel = ((states('sensor.kitchen_motion_sensor_battery_level') | int) / 10) | round(0) * 10 %}
+	{% if batterylevel == 100 %}
+	mdi:battery
+	{% elif batterylevel == 0 %}
+	mdi:battery-low
+	{% else %}
+	mdi:battery-{{batterylevel}}
+	{% endif %}
+
+	{{ state_attr('sensor.battery_status_kitchen','icon') }}
+
 
 ## DISCLAIMER
 * **NEVER REPLACE YOUR FILES BY THE FILES IN THIS REPOSITORY WITHOUT CREATING A BACKUP FIRST!**
