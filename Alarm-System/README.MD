@@ -1,5 +1,5 @@
 # Alarm System files for Home Assistant
-This is the file you need for the Alarm system in Home Assistant. 
+This is the mp3 file you need for the Alarm system in Home Assistant. 
 
 You can download it and put it in your www folder.
 
