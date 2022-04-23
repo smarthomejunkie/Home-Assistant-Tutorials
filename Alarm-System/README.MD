@@ -1,11 +1,6 @@
 # Alarm System files for Home Assistant
-* The alarm1.mp3 file is the mp3 file you need for the Alarm system in Home Assistant. 
-
-You can download it and store it in your /config/www folder.
-
 * In the config folder you will find the code that you can add to your configuration.yaml
-
-
+* In the config/www folder you will find the alarm1.mp3 file that you need for the Alarm system in Home Assistant. You can download it and store it in your own /config/www folder.
 
 The instructions to build your own alarm system can be found [in this YouTube video](https://youtu.be/JPSDAszlII4).
 
