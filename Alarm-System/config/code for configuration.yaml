@@ -1,0 +1,20 @@
+##########
+# DO NOT RENAME THIS FILE TO CONFIGURATION.YAML! YOU WILL BREAK YOUR CONFIG IF YOU DO SO!
+# INSTEAD, COPY THIS CODE WITHIN YOUR OWN CONFIGURATION.YAML          
+##########
+
+##### Alarm Control Panel ##################################
+alarm_control_panel:
+  - platform: manual
+    name: Home Alarm
+    code: 1234
+    code_arm_required: false
+    arming_time: 30 # The time of the 'arming' state before effecting a state change.
+    delay_time: 30 # The time of the 'pending' state before triggering the alarm.
+    trigger_time: 120 # The time of the 'triggered' state in which the alarm is firing.
+    disarm_after_trigger: false
+    disarmed:
+      trigger_time: 0
+    armed_home:
+      arming_time: 0
+      delay_time: 0
