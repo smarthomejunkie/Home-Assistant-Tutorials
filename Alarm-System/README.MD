@@ -1,4 +1,9 @@
 # Alarm System files for Home Assistant
+
+<a href="https://youtu.be/jh8l2K5oips" target="_blank"><img src="https://github.com/smarthomejunkie/Home-Assistant-Tutorials/raw/master/Alarm-System/Home-Assistant-Alarm-System-Thumb.png?raw=true"></a>
+
+The instructions for this tutorial can be found [in this YouTube video](https://youtu.be/jh8l2K5oips).
+
 * In the config folder you will find the code that you can add to your configuration.yaml
 * In the config/www folder you will find the alarm1.mp3 file that you need for the Alarm system in Home Assistant. You can download it and store it in your own /config/www folder.
 
