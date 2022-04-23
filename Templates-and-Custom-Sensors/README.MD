@@ -1,6 +1,6 @@
 # Templates and Custom Sensors in Home Assistant
 
-<a href="https://youtu.be/cdz32TLu_gw" target="_blank"><img src="https://github.com/smarthomejunkie/Home-Assistant-Tutorials/raw/master/Templates-and-Custom-Sensors/Templates-and-Custom-Sensors-in-Home-Assistant.png?raw=true"></a>
+<a href="https://youtu.be/cdz32TLu_gw" target="_blank"><img src="https://github.com/smarthomejunkie/Home-Assistant-Tutorials/raw/master/Templates-and-Custom-Sensors/Templates-and-Custom-Sensors-in-Home-Assistant-thumb.png?raw=true"></a>
 
 The instructions for this tutorial can be found [in this YouTube video](https://youtu.be/cdz32TLu_gw).
 
