@@ -1,4 +1,4 @@
-# New System menu in Home Assistant
+# New Settings menu in Home Assistant
 
 <a href="https://youtu.be/PncDL3bV1SA" target="_blank"><img src="https://github.com/smarthomejunkie/Home-Assistant-Tutorials/raw/master/New-Settings-Menu/Old-Configuration-Menu-Versus-New-Settings-Menu-in-Home-Assistant-thumb.png?raw=true"></a>
 
