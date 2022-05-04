@@ -8,7 +8,7 @@ This cheat sheet comes in handy if you are following tutorials that were created
 
 * The cheat sheet can be downloaded [here](https://github.com/smarthomejunkie/Home-Assistant-Tutorials/raw/master/New-Settings-Menu/Old-Configuration-Menu-versus-New-System-menu.pdf)
 
-I can only create these videos with your support. If this helped and saved you time, you can support me by becoming my Patron or buying me a coffee.
+I can only create these videos with your support. If this helped and saved you time, please support me by becoming my Patron or buying me a coffee.
 
 <a href="https://www.patreon.com/bePatron?u=50155158" target="_blank"><img src="https://github.com/smarthomejunkie/Home-Assistant-Tutorials/blob/master/become-a-patron.png?raw=true" alt="Become a Patron!"></a>
 
