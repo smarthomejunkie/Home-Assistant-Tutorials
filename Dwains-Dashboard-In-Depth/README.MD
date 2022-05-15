@@ -1,4 +1,4 @@
-# Alarm System files for Home Assistant
+# Dwains Dashboard with Mushroom cards - In-DEPTH TUTORIAL
 
 <a href="https://youtu.be/6hemFbrJuk8" target="_blank"><img src="https://github.com/smarthomejunkie/Home-Assistant-Tutorials/raw/master/Dwains-Dashboard-In-Depth/Dwains-Dashboard-In-Depth-Tutorial-thumbnail.png?raw=true"></a>
 
