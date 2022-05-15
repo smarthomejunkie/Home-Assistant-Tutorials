@@ -4,6 +4,32 @@
 
 The instructions for this tutorial can be found [in this YouTube video](https://youtu.be/6hemFbrJuk8).
 
+The code for the mushroom template card to change the icon is:
+
+```
+{% if is_state('binary_sensor.office_motion_sensor_occupancy','off') %}
+  mdi:motion-sensor-off
+{% else %}
+  mdi:motion-sensor
+{% endif %}
+```
+
+The code for the mushroom template card to change the icon-color is:
+
+```
+{% if is_state('binary_sensor.office_motion_sensor_occupancy','off') %}
+  grey
+{% else %}
+  light-green
+{% endif %}
+```
+
+The code for the mushroom template card to show the last triggered time is:
+
+```
+Triggered: {{ as_timestamp(states.binary_sensor.office_motion_sensor_occupancy.last_changed) | timestamp_custom(' %H:%M',true | int)}}
+```
+
 The code for the slider button-card is:
 
 ```
