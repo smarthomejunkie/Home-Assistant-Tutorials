@@ -3,6 +3,7 @@ Example code for Home Assistant Tutorials for the Smart Home Junkie channel on Y
 
 I will post all the code here that you can use while you follow a tutorial on the Youtube channel.
 
+* [Low Battery Warning Sensor](https://github.com/smarthomejunkie/Home-Assistant-Tutorials/tree/master/Low-Battery-Warning-Sensor)
 * [Dwains Dashboard In-Depth](https://github.com/smarthomejunkie/Home-Assistant-Tutorials/tree/master/Dwains-Dashboard-In-Depth)
 * [New Settings Menu](https://github.com/smarthomejunkie/Home-Assistant-Tutorials/tree/master/New-Settings-Menu)
 * [Templates & Custom Sensors](https://github.com/smarthomejunkie/Home-Assistant-Tutorials/tree/master/Templates-and-Custom-Sensors)
