@@ -58,7 +58,7 @@ You can copy and paste the code used in this video, but please make sure that yo
         {%- endif %}
 ```
 
-**The automations:**
+**The Automations:**
 
 ```
 alias: 'Sprinkler: Add Current Rain to Total Rain Fallen'
