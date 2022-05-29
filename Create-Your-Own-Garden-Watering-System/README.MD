@@ -8,7 +8,7 @@ The instructions for this tutorial can be found [in this YouTube video](https://
 
 You can copy and paste the code used in this video, but please make sure that you replace the entities in this code by your own entities.
 
-**The Template Sensors:
+**The Template Sensors:**
 
 ```
 - sensor:
@@ -58,7 +58,7 @@ You can copy and paste the code used in this video, but please make sure that yo
         {%- endif %}
 ```
 
-**The automations:
+**The automations:**
 
 ```
 alias: 'Sprinkler: Add Current Rain to Total Rain Fallen'
@@ -195,7 +195,7 @@ action:
 mode: single
 ```
 
-**The Scripts:
+**The Scripts:**
 
 ```
 alias: 'Sprinkler: Reset Helper Values'
