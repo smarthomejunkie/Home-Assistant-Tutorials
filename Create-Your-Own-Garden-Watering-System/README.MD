@@ -1,6 +1,6 @@
 # Create Your Own Garden Watering System in Home Assistant - TUTORIAL
 
-<a href="https://youtu.be/EVpKdNLba4s" target="_blank"><img src="https://github.com/smarthomejunkie/Home-Assistant-Tutorials/blob/master/Create-Your-Own-Garden-Watering-System-In-Home-Assistant/Create-Your-Own-Garden-Watering-System-In-Home-Assistant-Tutorial-Thumb.png?raw=true"></a>
+<a href="https://youtu.be/EVpKdNLba4s" target="_blank"><img src="https://github.com/smarthomejunkie/Home-Assistant-Tutorials/blob/master/Create-Your-Own-Garden-Watering-System/Create-Your-Own-Garden-Watering-System-In-Home-Assistant-Tutorial-Thumb.png?raw=true"></a>
 
 <a href="https://www.patreon.com/bePatron?u=50155158" target="_blank"><img src="https://github.com/smarthomejunkie/Home-Assistant-Tutorials/blob/master/become-a-patron.png?raw=true" alt="Become a Patron!"></a>
 
