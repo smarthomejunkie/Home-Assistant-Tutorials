@@ -1,8 +1,11 @@
 # Home-Assistant-Tutorials
 Example code for Home Assistant Tutorials for the Smart Home Junkie channel on Youtube
 
+<a href="https://www.patreon.com/bePatron?u=50155158" target="_blank"><img src="https://github.com/smarthomejunkie/Home-Assistant-Tutorials/blob/master/become-a-patron.png?raw=true" alt="Become a Patron!"></a>
+
 I will post all the code here that you can use while you follow a tutorial on the Youtube channel.
 
+* [Create your own Watering System](https://github.com/smarthomejunkie/Home-Assistant-Tutorials/raw/master/Create-Your-Own-Garden-Watering-System-In-Home-Assistant/)
 * [Low Battery Warning Sensor](https://github.com/smarthomejunkie/Home-Assistant-Tutorials/tree/master/Low-Battery-Warning-Sensor)
 * [Dwains Dashboard In-Depth](https://github.com/smarthomejunkie/Home-Assistant-Tutorials/tree/master/Dwains-Dashboard-In-Depth)
 * [New Settings Menu](https://github.com/smarthomejunkie/Home-Assistant-Tutorials/tree/master/New-Settings-Menu)
@@ -18,7 +21,7 @@ I will post all the code here that you can use while you follow a tutorial on th
 
 Visit my YouTube channel: [Smart Home Junkie](https://www.youtube.com/c/SmartHomeJunkie)
 
-If this helped and saved you time, you can support me by becoming my Patron. I'd really appreciate that.
+If this helped and saved you time, you can support me by becoming my Patron or buy me a coffee (or two ;). I'd really appreciate that.
 
 <a href="https://www.patreon.com/bePatron?u=50155158" target="_blank"><img src="https://github.com/smarthomejunkie/Home-Assistant-Tutorials/blob/master/become-a-patron.png?raw=true" alt="Become a Patron!"></a>
 

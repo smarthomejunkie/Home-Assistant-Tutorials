@@ -2,6 +2,8 @@
 
 <a href="https://youtu.be/VgV_ExVeSfE" target="_blank"><img src="https://github.com/smarthomejunkie/Home-Assistant-Tutorials/raw/master/Low-Battery-Warning-Sensor/Low-Battery-Warning-Sensor-In-Home-Assistant-Thumb.png?raw=true"></a>
 
+<a href="https://www.patreon.com/bePatron?u=50155158" target="_blank"><img src="https://github.com/smarthomejunkie/Home-Assistant-Tutorials/blob/master/become-a-patron.png?raw=true" alt="Become a Patron!"></a>
+
 The instructions for this tutorial can be found [in this YouTube video](https://youtu.be/VgV_ExVeSfE).
 
 The Sensor Template code :
@@ -38,13 +40,13 @@ The Sensor Template code :
         {% endif %}
 ```
 
-The code for the Conditional Card on the dahboard:
+The code for the Conditional Card on the dashboard:
 
 ```
 {{states('sensor.low_battery_devices')}}
 ```
 
-If this helped and saved you time, you can support me by becoming my Patron. I'd really appreciate that.
+If this helped and saved you time, you can support me by becoming my Patron or buy my a coffee (or two ;). I'd really appreciate that.
 
 <a href="https://www.patreon.com/bePatron?u=50155158" target="_blank"><img src="https://github.com/smarthomejunkie/Home-Assistant-Tutorials/blob/master/become-a-patron.png?raw=true" alt="Become a Patron!"></a>
 

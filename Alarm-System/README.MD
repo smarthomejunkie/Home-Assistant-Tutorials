@@ -2,6 +2,8 @@
 
 <a href="https://youtu.be/jh8l2K5oips" target="_blank"><img src="https://github.com/smarthomejunkie/Home-Assistant-Tutorials/raw/master/Alarm-System/Home-Assistant-Alarm-System-Thumb.png?raw=true"></a>
 
+<a href="https://www.patreon.com/bePatron?u=50155158" target="_blank"><img src="https://github.com/smarthomejunkie/Home-Assistant-Tutorials/blob/master/become-a-patron.png?raw=true" alt="Become a Patron!"></a>
+
 The instructions for this tutorial can be found [in this YouTube video](https://youtu.be/jh8l2K5oips).
 
 * In the config folder you will find the code that you can add to your configuration.yaml
