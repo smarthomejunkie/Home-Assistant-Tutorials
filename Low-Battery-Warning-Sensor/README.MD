@@ -9,6 +9,7 @@ The instructions for this tutorial can be found [in this YouTube video](https://
 The Sensor Template code :
 
 ```
+- sensor:
     ##### Low Battery list ##################################
     - name: "Low Battery Devices"
       unique_id: ba292875-ae67-480d-9867-29cdb20afaea
