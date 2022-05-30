@@ -1,6 +1,6 @@
 # Create Your Own Garden Watering System in Home Assistant - TUTORIAL
 
-<a href="https://youtu.be/EVpKdNLba4s" target="_blank"><img src="https://github.com/smarthomejunkie/Home-Assistant-Tutorials/raw/master/Create-Your-Own-Garden-Watering-System-In-Home-Assistant/Create-Your-Own-Garden-Watering-System-In-Home-Assistant-Tutorial-Thumb.png?raw=true"></a>
+<a href="https://youtu.be/EVpKdNLba4s" target="_blank"><img src="https://github.com/smarthomejunkie/Home-Assistant-Tutorials/blob/master/Create-Your-Own-Garden-Watering-System/Create-Your-Own-Garden-Watering-System-In-Home-Assistant-Tutorial-Thumb.png?raw=true"></a>
 
 <a href="https://www.patreon.com/bePatron?u=50155158" target="_blank"><img src="https://github.com/smarthomejunkie/Home-Assistant-Tutorials/blob/master/become-a-patron.png?raw=true" alt="Become a Patron!"></a>
 
@@ -8,7 +8,7 @@ The instructions for this tutorial can be found [in this YouTube video](https://
 
 You can copy and paste the code used in this video, but please make sure that you replace the entities in this code by your own entities.
 
-**The Template Sensors:
+**The Template Sensors:**
 
 ```
 - sensor:
@@ -58,7 +58,7 @@ You can copy and paste the code used in this video, but please make sure that yo
         {%- endif %}
 ```
 
-**The automations:
+**The Automations:**
 
 ```
 alias: 'Sprinkler: Add Current Rain to Total Rain Fallen'
@@ -195,7 +195,7 @@ action:
 mode: single
 ```
 
-**The Scripts:
+**The Scripts:**
 
 ```
 alias: 'Sprinkler: Reset Helper Values'
