@@ -256,7 +256,7 @@ icon: mdi:sprinkler
 Some people asked me what would happen if Home Assistant reboots during watering. In that case, the sprinkler would go on forever, but you can easily circumvent this:
 
 1. Create a toggle (input_boolean) helper: Sprinkler State
-2. Change the script: **Sprinkler: Water the garden** to turn on the sprinkler state when the sprinkler starts and turn off the sprinkler state when the sprinkler stops:
+2. Change the script: **Sprinkler: Water the garden** to turn on the sprinkler state when the sprinkler starts:
 
 ```
 alias: 'Sprinkler: Water the Garden'
@@ -286,14 +286,42 @@ sequence:
   - service: notify.mobile_app_iphone_x_ed
     data:
       message: Stopped Watering the Garden
+mode: single
+icon: mdi:sprinkler
+```
+3. Change the script: **Sprinkler: Reset Helper Values** to turn off the sprinkler state too:
+
+```
+alias: 'Sprinkler: Reset Helper Values'
+sequence:
+  - service: input_number.set_value
+    data:
+      value: 0
+    target:
+      entity_id:
+        - input_number.sprinkler_total_rain_fallen
+        - input_number.sprinkler_watering_duration
+  - service: input_datetime.set_datetime
+    entity_id: input_datetime.sprinkler_last_watering_day
+    data_template:
+      datetime: '{{ now() }}'
+  - service: input_number.set_value
+    data_template:
+      value: '{{ states(''sensor.openweathermap_temperature'') }}'
+    target:
+      entity_id: input_number.sprinkler_maximum_temperature_measured
   - service: input_boolean.turn_off
     data: {}
     target:
       entity_id: input_boolean.sprinkler_state
+  - service: notify.mobile_app_iphone_x_ed
+    data:
+      message: Now resetting the Sprinkler values
 mode: single
-icon: mdi:sprinkler
+icon: mdi:refresh
 ```
-3. Create an automation that checks if the sprinkler is still running if Home Assistant is rebooted and stop the sprinkler if that is the case:
+
+4. Create an automation that checks if the sprinkler is still running if Home Assistant is rebooted and stop the sprinkler if that is the case:
 ```
 alias: >-
   Sprinkler: Check if Sprinkler is still running after a reboot of Home
