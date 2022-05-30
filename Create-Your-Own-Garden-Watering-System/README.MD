@@ -251,7 +251,8 @@ mode: single
 icon: mdi:sprinkler
 ```
 
-**EXTRA**
+##EXTRA##
+
 Some people asked me, what would happen if Home Assistant reboots during watering. In that case, the sprinkler would go on forever, but you can easily circumvent this:
 
 1. Create a toggle (input_boolean) helper: Sprinkler State
