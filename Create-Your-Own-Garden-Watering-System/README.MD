@@ -286,7 +286,7 @@ sequence:
   - service: notify.mobile_app_iphone_x_ed
     data:
       message: Stopped Watering the Garden
-  - service: input_boolean.turn_on
+  - service: input_boolean.turn_off
     data: {}
     target:
       entity_id: input_boolean.sprinkler_state
