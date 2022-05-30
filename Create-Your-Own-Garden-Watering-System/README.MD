@@ -254,7 +254,7 @@ icon: mdi:sprinkler
 
 ## EXTRA
 
-Some people asked me what would happen if Home Assistant reboots during watering. In that case, the sprinkler would go on forever, but you can easily circumvent this:
+Some people asked me what would happen if Home Assistant reboots during watering. In that case, the sprinkler would go on until the next time that the sprinkler timer is triggered, but you can easily circumvent this:
 
 1. Create a toggle (input_boolean) helper: Sprinkler State
 2. Change the script: **Sprinkler: Water the garden** to turn on the sprinkler state when the sprinkler starts:
