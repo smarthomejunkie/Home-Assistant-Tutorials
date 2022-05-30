@@ -251,6 +251,70 @@ mode: single
 icon: mdi:sprinkler
 ```
 
+**EXTRA**
+Some people asked me, what would happen if Home Assistant reboots during watering. In that case, the sprinkler would go on forever, but you can easily circumvent this:
+
+1. Create a toggle (input_boolean) helper: Sprinkler State
+2. Change the script: Sprinkler: Water the garden to turn on the sprinkler state when the sprinkler starts and turn off the sprinkler state when the sprinkler stops:
+
+```
+alias: 'Sprinkler: Water the Garden'
+sequence:
+  - service: input_boolean.turn_on
+    data: {}
+    target:
+      entity_id: input_boolean.sprinkler_state
+  - service: notify.mobile_app_iphone_x_ed
+    data:
+      message: >-
+        Start watering the garden for {{
+        states("input_number.sprinkler_watering_duration") | int }} minutes.
+  - type: turn_on
+    device_id: 8137a99e9f2fc80d6d0b0192ef801c0a
+    entity_id: switch.sw_plug_2
+    domain: switch
+  - delay:
+      minutes: |
+        {{ states("input_number.sprinkler_watering_duration") | int }}
+  - type: turn_off
+    device_id: 8137a99e9f2fc80d6d0b0192ef801c0a
+    entity_id: switch.sw_plug_2
+    domain: switch
+  - service: script.sprinkler_reset_helper_values
+    data: {}
+  - service: notify.mobile_app_iphone_x_ed
+    data:
+      message: Stopped Watering the Garden
+  - service: input_boolean.turn_on
+    data: {}
+    target:
+      entity_id: input_boolean.sprinkler_state
+mode: single
+icon: mdi:sprinkler
+```
+3. Create an automation that checks if the sprinkler is still running if Home Assistant is rebooted and stop the sprinkler if that is the case:
+```
+alias: >-
+  Sprinkler: Check if Sprinkler is still running after a reboot of Home
+  Assistant
+description: ''
+trigger:
+  - platform: homeassistant
+    event: start
+condition:
+  - condition: state
+    entity_id: input_boolean.sprinkler_state
+    state: 'on'
+action:
+  - type: turn_off
+    device_id: 8137a99e9f2fc80d6d0b0192ef801c0a
+    entity_id: switch.sw_plug_2
+    domain: switch
+  - service: script.sprinkler_reset_helper_values
+    data: {}
+mode: single
+```
+
 If this helped and saved you time, you can support me by becoming my Patron or buy my a coffee (or two ;). I'd really appreciate that.
 
 <a href="https://www.patreon.com/bePatron?u=50155158" target="_blank"><img src="https://github.com/smarthomejunkie/Home-Assistant-Tutorials/blob/master/become-a-patron.png?raw=true" alt="Become a Patron!"></a>
