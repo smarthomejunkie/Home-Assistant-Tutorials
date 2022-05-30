@@ -261,7 +261,7 @@ Some people asked me what would happen if Home Assistant reboots during watering
 ```
 alias: 'Sprinkler: Water the Garden'
 sequence:
-  **- service: input_boolean.turn_on**
+  - service: input_boolean.turn_on
     data: {}
     target:
       entity_id: input_boolean.sprinkler_state
