@@ -464,10 +464,6 @@ Here you go! Here's the dashboard code. You need to have mushroom cards and the 
         columns: 2
         type: grid
         cards:
-          - type: custom:mushroom-entity-card
-            entity: sensor.sprinkler_current_temperature_is_higher
-            tap_action:
-              action: more-info
           - type: custom:mushroom-template-card
             primary: >
               {{ states('sensor.sprinkler_current_temperature_is_higher') |
@@ -507,6 +503,27 @@ Here you go! Here's the dashboard code. You need to have mushroom cards and the 
             entity: sensor.openweathermap_rain
             icon_color: |-
               {% if states('sensor.openweathermap_rain') | float(0) == 0 -%}
+                grey
+              {%- else -%}
+                amber
+              {%- endif %}
+            tap_action:
+              action: more-info
+          - type: custom:mushroom-template-card
+            primary: |
+              {{ states('sensor.sprinkler_total_expected_precipitation') }} mm
+            secondary: Expected Precipitation
+            icon: >-
+              {% if states('sensor.sprinkler_total_expected_precipitation') |
+              float(0) == 0 -%}
+                mdi:weather-cloudy
+              {%- else -%}
+                mdi:weather-pouring
+              {%- endif %}
+            entity: sensor.sprinkler_total_expected_precipitation
+            icon_color: >-
+              {% if states('sensor.sprinkler_total_expected_precipitation') |
+              float(0) == 0 -%}
                 grey
               {%- else -%}
                 amber
