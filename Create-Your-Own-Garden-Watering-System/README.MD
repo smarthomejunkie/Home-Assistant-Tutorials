@@ -466,6 +466,8 @@ Here you go! Here's the dashboard code. You need to have mushroom cards and the 
         cards:
           - type: custom:mushroom-entity-card
             entity: sensor.sprinkler_current_temperature_is_higher
+            tap_action:
+              action: more-info
           - type: custom:mushroom-template-card
             primary: >
               {{ states('sensor.sprinkler_current_temperature_is_higher') |
@@ -480,6 +482,8 @@ Here you go! Here's the dashboard code. You need to have mushroom cards and the 
               {%- else -%}
                 red
               {%- endif %}
+            tap_action:
+              action: more-info
           - type: custom:mushroom-template-card
             primary: |
               {{ states('sensor.openweathermap_rain') }} mm
@@ -507,6 +511,8 @@ Here you go! Here's the dashboard code. You need to have mushroom cards and the 
               {%- else -%}
                 amber
               {%- endif %}
+            tap_action:
+              action: more-info
           - type: custom:mushroom-template-card
             primary: |
               {{ states('sensor.openweathermap_temperature') }} °C
@@ -526,6 +532,8 @@ Here you go! Here's the dashboard code. You need to have mushroom cards and the 
               {%- else -%}
                 red
               {%- endif %}
+            tap_action:
+              action: more-info
           - type: gauge
             entity: sensor.sprinkler_days_since_last_watering_day
             min: 0
