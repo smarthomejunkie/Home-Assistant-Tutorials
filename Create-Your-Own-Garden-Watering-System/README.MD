@@ -252,7 +252,9 @@ mode: single
 icon: mdi:sprinkler
 ```
 
-## EXTRA
+# EXTRA
+
+# Check if sprinkler still runs after Home Assistant restarted
 
 Some people asked me what would happen if Home Assistant reboots during watering. In that case, the sprinkler would go on until the next time that the sprinkler timer is triggered, but you can easily circumvent this:
 
@@ -344,6 +346,278 @@ action:
     data: {}
 mode: single
 ```
+
+# Monitoring dashboard
+
+<img src="https://github.com/smarthomejunkie/Home-Assistant-Tutorials/blob/master/Create-Your-Own-Garden-Watering-System/Dashboard.png?raw=true">
+
+Here you go! Here's the dashboard code. You need to have mushroom cards and the layout cardf installed through HACS to make this work:
+
+```
+  - theme: Backend-selected
+    title: Sprinkler
+    path: sprinkler
+    type: custom:vertical-layout
+    badges: []
+    cards:
+      - type: custom:mushroom-chips-card
+        chips:
+          - type: back
+          - type: entity
+            entity: input_boolean.sprinkler_state
+            icon_color: light-green
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            double_tap_action:
+              action: more-info
+      - type: custom:mushroom-title-card
+        title: ''
+        subtitle: Helpers
+      - square: false
+        columns: 2
+        type: grid
+        cards:
+          - type: custom:mushroom-template-card
+            primary: >-
+              {{ states('input_number.sprinkler_maximum_temperature_measured')
+              }} °C
+            secondary: Max temperature
+            icon: mdi:thermometer
+            entity: input_number.sprinkler_maximum_temperature_measured
+            icon_color: >-
+              {% if
+              states('input_number.sprinkler_maximum_temperature_measured') |
+              float(0) <= 15.1 -%}
+                green
+              {%- elif
+              states('input_number.sprinkler_maximum_temperature_measured') |
+              float(0) <= 21.1 -%}
+                amber
+              {%- elif
+              states('input_number.sprinkler_maximum_temperature_measured') |
+              float(0) <= 30.1 -%}
+                orange
+              {%- else -%}
+                red
+              {%- endif %}
+            tap_action:
+              action: more-info
+          - type: custom:mushroom-template-card
+            primary: '{{ states(''input_number.sprinkler_total_rain_fallen'') }} mm'
+            secondary: Total Rain Fallen
+            icon: mdi:weather-pouring
+            entity: input_number.sprinkler_total_rain_fallen
+            icon_color: >-
+              {% if states('input_number.sprinkler_total_rain_fallen') |
+              float(0) <= 10 -%}
+                green
+              {%- elif
+              states('input_number.sprinkler_maximum_total_rain_fallen') |
+              float(0) <= 15 -%}
+                amber
+              {%- elif
+              states('input_number.sprinkler_maximum_total_rain_fallen') |
+              float(0) <= 20 -%}
+                orange
+              {%- else -%}
+                red
+              {%- endif %}
+            tap_action:
+              action: more-info
+          - type: custom:mushroom-template-card
+            primary: '{{ states(''input_datetime.sprinkler_last_watering_day'') }}'
+            secondary: Last Watering Day
+            icon: mdi:calendar
+            entity: input_datetime.sprinkler_last_watering_day
+            icon_color: amber
+            tap_action:
+              action: more-info
+          - type: custom:mushroom-template-card
+            primary: '{{ states(''input_number.sprinkler_watering_duration'') }} '
+            secondary: Watering Duration
+            icon: mdi:timer
+            entity: input_number.input_number.sprinkler_watering_duration
+            icon_color: >-
+              {% if states('input_number.sprinkler_watering_duration') | int ==
+              45 -%}
+                green
+              {%- elif states('input_number.sprinkler_watering_duration') | int
+              == 60 -%}
+                amber
+              {%- elif states('input_number.sprinkler_watering_duration') | int
+              == 75 -%}
+                orange
+              {%- elif states('input_number.sprinkler_watering_duration') | int
+              == 90 -%}
+                red
+              {%- else -%}
+                grey
+              {%- endif %}
+            tap_action:
+              action: more-info
+      - type: custom:mushroom-title-card
+        title: ''
+        subtitle: Sensors
+      - square: false
+        columns: 2
+        type: grid
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: sensor.sprinkler_current_temperature_is_higher
+          - type: custom:mushroom-template-card
+            primary: >
+              {{ states('sensor.sprinkler_current_temperature_is_higher') |
+              capitalize }}
+            secondary: Current Temp is Higher?
+            icon: mdi:check
+            entity: sensor.sprinkler_current_temperature_is_higher
+            icon_color: >-
+              {% if states('sensor.sprinkler_current_temperature_is_higher') ==
+              true -%}
+                green
+              {%- else -%}
+                red
+              {%- endif %}
+          - type: custom:mushroom-template-card
+            primary: |
+              {{ states('sensor.openweathermap_rain') }} mm
+            secondary: Openweathermap Rain
+            icon: >-
+              {% if states('sensor.openweathermap_condition') == 'partlycloudy'
+              -%}
+                mdi:weather-partly-cloudy
+              {% elif states('sensor.openweathermap_condition') == 'cloudy' -%}
+                mdi:weather-cloudy
+              {% elif states('sensor.openweathermap_condition') == 'rainy' -%}
+                mdi:weather-pouring
+              {% elif states('sensor.openweathermap_condition') == 'clear-night'
+              -%}
+                mdi:weather-night
+              {% elif states('sensor.openweathermap_condition') == 'sunny' -%}
+                mdi:weather-sunny
+              {%- else -%}
+                mdi:weather-pouring
+              {%- endif %}
+            entity: sensor.sprinkler_current_temperature_is_higher
+            icon_color: |-
+              {% if states('sensor.openweathermap_rain') | int == 0 -%}
+                grey
+              {%- else -%}
+                amber
+              {%- endif %}
+          - type: custom:mushroom-template-card
+            primary: |
+              {{ states('sensor.openweathermap_temperature') }} °C
+            secondary: Openweathermap Temp
+            icon: mdi:thermometer
+            entity: sensor.openweathermap_temperature
+            icon_color: >-
+              {% if states('sensor.openweathermap_temperature') | float(0) <= 15
+              -%}
+                light-blue
+              {% elif states('sensor.openweathermap_temperature') | float(0) <=
+              21 -%}
+                green
+              {% elif states('sensor.openweathermap_temperature') | float(0) <=
+              26 -%}
+                orange
+              {%- else -%}
+                red
+              {%- endif %}
+          - type: gauge
+            entity: sensor.sprinkler_days_since_last_watering_day
+            min: 0
+            max: 3
+            severity:
+              green: 1
+              yellow: 1
+              red: 2
+            needle: true
+            name: Days since last watering
+          - type: gauge
+            entity: sensor.sprinkler_total_rain_fallen_plus_expected
+            min: 0
+            max: 25
+            severity:
+              green: 10
+              yellow: 15
+              red: 20
+            needle: true
+            name: Rain Fallen + Expected
+      - type: custom:mushroom-title-card
+        title: ''
+        subtitle: Automations
+      - square: false
+        columns: 1
+        type: grid
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: automation.sprinkler_add_current_rain_to_total_rain_fallen
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            double_tap_action:
+              action: more-info
+            icon_color: light-green
+          - type: custom:mushroom-entity-card
+            entity: automation.sprinkler_water_the_garden
+            icon_color: light-green
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            double_tap_action:
+              action: more-info
+          - type: custom:mushroom-entity-card
+            entity: >-
+              automation.sprinkler_check_maximum_temperature_when_temperature_changes
+            icon_color: light-green
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            double_tap_action:
+              action: more-info
+          - type: custom:mushroom-entity-card
+            entity: >-
+              automation.sprinkler_check_if_sprinkler_is_still_running_after_a_reboot_of_home_assistant
+            icon_color: light-green
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            double_tap_action:
+              action: more-info
+      - type: custom:mushroom-title-card
+        title: ''
+        subtitle: Scripts
+      - square: false
+        columns: 1
+        type: grid
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: script.sprinkler_water_the_garden
+            icon_color: light-green
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            double_tap_action:
+              action: more-info
+          - type: custom:mushroom-entity-card
+            entity: script.sprinkler_reset_helper_values
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            double_tap_action:
+              action: more-info
+            icon_color: light-green
+```
+
 
 If this helped and saved you time, you can support me by becoming my Patron or buy my a coffee (or two ;). I'd really appreciate that.
 
