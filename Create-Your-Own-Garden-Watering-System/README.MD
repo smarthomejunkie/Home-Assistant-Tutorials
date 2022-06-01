@@ -19,7 +19,7 @@ This code is here for your convenience and works 100% if everything is installed
       icon: mdi:weather-pouring
       unit_of_measurement: mm
       state: >
-        {%- set totalprecipitation = 0 | float -%}
+        {%- set totalprecipitation = 0 | float(0) -%}
         {%- set ns = namespace() -%} 
         {%- set ns.totalprecipitation = 0 -%}
         {%- for daypart in range(0, 7) -%}
@@ -30,7 +30,7 @@ This code is here for your convenience and works 100% if everything is installed
           {%- endif -%}
           {%- set ns.totalprecipitation = ns.totalprecipitation + precipitation -%}
         {%- endfor %}
-        {{ ns.totalprecipitation | float | round(0) }}
+        {{ ns.totalprecipitation | float(0) | round(0) }}
 
     ##### Sprinkler Total Rain Fallen Plus Expected ##################################
     - name: "Sprinkler Total Rain Fallen Plus Expected"
@@ -38,21 +38,21 @@ This code is here for your convenience and works 100% if everything is installed
       icon: mdi:weather-pouring
       unit_of_measurement: mm
       state: >
-        {{ (states('input_number.sprinkler_total_rain_fallen') | float + states('sensor.sprinkler_total_expected_precipitation') | float) | round(2) }}
+        {{ (states('input_number.sprinkler_total_rain_fallen') | float(0) + states('sensor.sprinkler_total_expected_precipitation') | float(0)) | round(2) }}
 
     ##### Sprinkler Days Since Last Watering Day ##################################
     - name: "Sprinkler Days Since Last Watering Day"
       unique_id: 89b640e1-4234-4dc8-896f-24579c130199
       icon: mdi:calendar
       state: >
-        {{ ((as_timestamp(now()) - as_timestamp(states("input_datetime.sprinkler_last_watering_day"))) / 86400) | float | round(2) }}
+        {{ ((as_timestamp(now()) - as_timestamp(states("input_datetime.sprinkler_last_watering_day"))) / 86400) | float(0) | round(2) }}
 
     ##### Sprinkler Current Temperature Is Higher ##################################
     - name: "Sprinkler Current Temperature Is Higher"
       unique_id: d6eba539-5ba5-49ed-bd15-27e8b0f21e3b
       icon: mdi:check
       state: >
-        {%- if states('sensor.openweathermap_temperature') | float > states('input_number.sprinkler_maximum_temperature_measured') | float -%}
+        {%- if states('sensor.openweathermap_temperature') | float(0) > states('input_number.sprinkler_maximum_temperature_measured') | float(0) -%}
           true
         {%- else -%}
           false
@@ -73,8 +73,8 @@ action:
   - data_template:
       entity_id: input_number.sprinkler_total_rain_fallen
       value: >-
-        {{ states("input_number.sprinkler_total_rain_fallen")|float +
-        states("sensor.openweathermap_rain")|float }}
+        {{ states("input_number.sprinkler_total_rain_fallen")|float(0) +
+        states("sensor.openweathermap_rain")|float(0) }}
     service: input_number.set_value
 mode: single
 ```
