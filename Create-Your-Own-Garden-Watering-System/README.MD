@@ -506,7 +506,7 @@ Here you go! Here's the dashboard code. You need to have mushroom cards and the 
               {%- endif %}
             entity: sensor.openweathermap_rain
             icon_color: |-
-              {% if states('sensor.openweathermap_rain') | int == 0 -%}
+              {% if states('sensor.openweathermap_rain') | float(0) == 0 -%}
                 grey
               {%- else -%}
                 amber
