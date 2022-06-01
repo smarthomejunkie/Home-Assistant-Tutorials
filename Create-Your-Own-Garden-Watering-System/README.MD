@@ -504,7 +504,7 @@ Here you go! Here's the dashboard code. You need to have mushroom cards and the 
               {%- else -%}
                 mdi:weather-pouring
               {%- endif %}
-            entity: sensor.sprinkler_current_temperature_is_higher
+            entity: sensor.openweathermap_rain
             icon_color: |-
               {% if states('sensor.openweathermap_rain') | int == 0 -%}
                 grey
