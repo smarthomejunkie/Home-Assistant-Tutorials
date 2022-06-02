@@ -351,7 +351,7 @@ mode: single
 
 <img src="https://github.com/smarthomejunkie/Home-Assistant-Tutorials/blob/master/Create-Your-Own-Garden-Watering-System/Dashboard.png?raw=true">
 
-Here you go! Here's the dashboard code. You need to have mushroom cards and the layout card installed through HACS to make this work:
+Here you go! Here's the dashboard code. You need to have mushroom cards and the custom layout card installed through HACS to make this work:
 
 ```
   - theme: Backend-selected
