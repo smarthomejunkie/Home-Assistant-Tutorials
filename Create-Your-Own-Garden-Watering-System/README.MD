@@ -390,7 +390,7 @@ Here you go! Here's the dashboard code. You need to have mushroom cards and the 
               {% if
               states('input_number.sprinkler_maximum_temperature_measured') |
               float(0) <= 15.1 -%}
-                green
+                light-blue
               {%- elif
               states('input_number.sprinkler_maximum_temperature_measured') |
               float(0) <= 21.1 -%}
@@ -438,7 +438,7 @@ Here you go! Here's the dashboard code. You need to have mushroom cards and the 
             primary: '{{ states(''input_number.sprinkler_watering_duration'') }} '
             secondary: Watering Duration
             icon: mdi:timer
-            entity: input_number.input_number.sprinkler_watering_duration
+            entity: input_number.sprinkler_watering_duration
             icon_color: >-
               {% if states('input_number.sprinkler_watering_duration') | int ==
               45 -%}
@@ -542,7 +542,7 @@ Here you go! Here's the dashboard code. You need to have mushroom cards and the 
                 light-blue
               {% elif states('sensor.openweathermap_temperature') | float(0) <=
               21 -%}
-                green
+                amber
               {% elif states('sensor.openweathermap_temperature') | float(0) <=
               26 -%}
                 orange
