@@ -258,73 +258,8 @@ icon: mdi:sprinkler
 
 Some people asked me what would happen if Home Assistant reboots during watering. In that case, the sprinkler would go on until the next time that the sprinkler timer is triggered, but you can easily circumvent this:
 
-1. Create a toggle (input_boolean) helper: Sprinkler State
-2. Change the script: **Sprinkler: Water the garden** to turn on the sprinkler state when the sprinkler starts:
+Create an automation that checks if the sprinkler is still running if Home Assistant is rebooted and stop the sprinkler if that is the case:
 
-```
-alias: 'Sprinkler: Water the Garden'
-sequence:
-  - service: input_boolean.turn_on
-    data: {}
-    target:
-      entity_id: input_boolean.sprinkler_state
-  - service: notify.mobile_app_iphone_x_ed
-    data:
-      message: >-
-        Start watering the garden for {{
-        states("input_number.sprinkler_watering_duration") | int }} minutes.
-  - type: turn_on
-    device_id: 8137a99e9f2fc80d6d0b0192ef801c0a
-    entity_id: switch.sw_plug_2
-    domain: switch
-  - delay:
-      minutes: |
-        {{ states("input_number.sprinkler_watering_duration") | int }}
-  - type: turn_off
-    device_id: 8137a99e9f2fc80d6d0b0192ef801c0a
-    entity_id: switch.sw_plug_2
-    domain: switch
-  - service: script.sprinkler_reset_helper_values
-    data: {}
-  - service: notify.mobile_app_iphone_x_ed
-    data:
-      message: Stopped Watering the Garden
-mode: single
-icon: mdi:sprinkler
-```
-3. Change the script: **Sprinkler: Reset Helper Values** to turn off the sprinkler state too:
-
-```
-alias: 'Sprinkler: Reset Helper Values'
-sequence:
-  - service: input_number.set_value
-    data:
-      value: 0
-    target:
-      entity_id:
-        - input_number.sprinkler_total_rain_fallen
-        - input_number.sprinkler_watering_duration
-  - service: input_datetime.set_datetime
-    entity_id: input_datetime.sprinkler_last_watering_day
-    data_template:
-      datetime: '{{ now() }}'
-  - service: input_number.set_value
-    data_template:
-      value: '{{ states(''sensor.openweathermap_temperature'') }}'
-    target:
-      entity_id: input_number.sprinkler_maximum_temperature_measured
-  - service: input_boolean.turn_off
-    data: {}
-    target:
-      entity_id: input_boolean.sprinkler_state
-  - service: notify.mobile_app_iphone_x_ed
-    data:
-      message: Now resetting the Sprinkler values
-mode: single
-icon: mdi:refresh
-```
-
-4. Create an automation that checks if the sprinkler is still running if Home Assistant is rebooted and stop the sprinkler if that is the case:
 ```
 alias: >-
   Sprinkler: Check if Sprinkler is still running after a reboot of Home
@@ -334,9 +269,11 @@ trigger:
   - platform: homeassistant
     event: start
 condition:
-  - condition: state
-    entity_id: input_boolean.sprinkler_state
-    state: 'on'
+  - condition: device
+    type: is_on
+    device_id: 8137a99e9f2fc80d6d0b0192ef801c0a
+    entity_id: switch.sw_plug_2
+    domain: switch
 action:
   - type: turn_off
     device_id: 8137a99e9f2fc80d6d0b0192ef801c0a
@@ -345,6 +282,7 @@ action:
   - service: script.sprinkler_reset_helper_values
     data: {}
 mode: single
+
 ```
 
 # Monitoring dashboard
