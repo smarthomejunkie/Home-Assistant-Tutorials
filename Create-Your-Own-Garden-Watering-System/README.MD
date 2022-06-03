@@ -397,8 +397,12 @@ Here you go! Here's the dashboard code. You need to have mushroom cards and the 
                 amber
               {%- elif
               states('input_number.sprinkler_maximum_temperature_measured') |
-              float(0) <= 30.1 -%}
+              float(0) <= 26.1 -%}
                 orange
+              {%- elif
+              states('input_number.sprinkler_maximum_temperature_measured') |
+              float(0) <= 31.1 -%}
+                deep-orange
               {%- else -%}
                 red
               {%- endif %}
@@ -546,6 +550,9 @@ Here you go! Here's the dashboard code. You need to have mushroom cards and the 
               {% elif states('sensor.openweathermap_temperature') | float(0) <=
               26 -%}
                 orange
+              {% elif states('sensor.openweathermap_temperature') | float(0) <=
+              31 -%}
+                deep-orange
               {%- else -%}
                 red
               {%- endif %}
