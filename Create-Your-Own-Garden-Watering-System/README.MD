@@ -301,15 +301,6 @@ Here you go! Here's the dashboard code. You need to have mushroom cards and the 
       - type: custom:mushroom-chips-card
         chips:
           - type: back
-          - type: entity
-            entity: input_boolean.sprinkler_state
-            icon_color: light-green
-            tap_action:
-              action: toggle
-            hold_action:
-              action: more-info
-            double_tap_action:
-              action: more-info
       - type: custom:mushroom-title-card
         title: ''
         subtitle: Helpers
