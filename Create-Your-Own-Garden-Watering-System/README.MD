@@ -301,6 +301,8 @@ Here you go! Here's the dashboard code. You need to have mushroom cards and the 
       - type: custom:mushroom-chips-card
         chips:
           - type: back
+          - type: entity
+            entity: switch.sw_plug_2
       - type: custom:mushroom-title-card
         title: ''
         subtitle: Helpers
