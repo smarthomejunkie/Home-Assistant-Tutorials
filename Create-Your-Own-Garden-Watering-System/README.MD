@@ -362,7 +362,9 @@ Here you go! Here's the dashboard code. You need to have mushroom cards and the 
             tap_action:
               action: more-info
           - type: custom:mushroom-template-card
-            primary: '{{ states(''input_datetime.sprinkler_last_watering_day'') }}'
+            primary: >-
+              {{ (states('input_datetime.sprinkler_last_watering_day') |
+              as_datetime).strftime('%d-%m-%Y') }}
             secondary: Last Watering Day
             icon: mdi:calendar
             entity: input_datetime.sprinkler_last_watering_day
