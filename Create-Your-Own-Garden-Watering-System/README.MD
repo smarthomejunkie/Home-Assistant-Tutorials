@@ -268,21 +268,35 @@ description: ''
 trigger:
   - platform: homeassistant
     event: start
-condition:
-  - condition: device
-    type: is_on
-    device_id: 8137a99e9f2fc80d6d0b0192ef801c0a
-    entity_id: switch.sw_plug_2
-    domain: switch
+condition: []
 action:
-  - type: turn_off
-    device_id: 8137a99e9f2fc80d6d0b0192ef801c0a
-    entity_id: switch.sw_plug_2
-    domain: switch
-  - service: script.sprinkler_reset_helper_values
-    data: {}
+  - repeat:
+      until:
+        - condition: not
+          conditions:
+            - condition: state
+              entity_id: switch.sw_plug_2
+              state: unknown
+      sequence:
+        - delay:
+            hours: 0
+            minutes: 1
+            seconds: 0
+            milliseconds: 0
+  - if:
+      - condition: device
+        type: is_on
+        device_id: 8137a99e9f2fc80d6d0b0192ef801c0a
+        entity_id: switch.sw_plug_2
+        domain: switch
+    then:
+      - type: turn_off
+        device_id: 8137a99e9f2fc80d6d0b0192ef801c0a
+        entity_id: switch.sw_plug_2
+        domain: switch
+      - service: script.sprinkler_reset_helper_values
+        data: {}
 mode: single
-
 ```
 
 # Monitoring dashboard
