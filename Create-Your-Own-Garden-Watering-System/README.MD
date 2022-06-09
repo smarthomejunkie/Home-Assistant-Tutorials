@@ -327,27 +327,18 @@ Here you go! Here's the dashboard code. You need to have mushroom cards and the 
         cards:
           - type: custom:mushroom-template-card
             primary: >-
-              {{ states('input_number.sprinkler_maximum_temperature_measured')
-              }} °C
+              {{ states('input_number.sprinkler_maximum_temperature_measured') }} °C
             secondary: Max temperature
             icon: mdi:thermometer
             entity: input_number.sprinkler_maximum_temperature_measured
             icon_color: >-
-              {% if
-              states('input_number.sprinkler_maximum_temperature_measured') |
-              float(0) <= 15.1 -%}
+              {% if states('input_number.sprinkler_maximum_temperature_measured') | float(0) <= 15.1 -%}
                 light-blue
-              {%- elif
-              states('input_number.sprinkler_maximum_temperature_measured') |
-              float(0) <= 21.1 -%}
+              {%- elif states('input_number.sprinkler_maximum_temperature_measured') | float(0) <= 21.1 -%}
                 amber
-              {%- elif
-              states('input_number.sprinkler_maximum_temperature_measured') |
-              float(0) <= 26.1 -%}
+              {%- elif states('input_number.sprinkler_maximum_temperature_measured') | float(0) <= 26.1 -%}
                 orange
-              {%- elif
-              states('input_number.sprinkler_maximum_temperature_measured') |
-              float(0) <= 31.1 -%}
+              {%- elif states('input_number.sprinkler_maximum_temperature_measured') | float(0) <= 31.1 -%}
                 deep-orange
               {%- else -%}
                 red
@@ -360,16 +351,11 @@ Here you go! Here's the dashboard code. You need to have mushroom cards and the 
             icon: mdi:weather-pouring
             entity: input_number.sprinkler_total_rain_fallen
             icon_color: >-
-              {% if states('input_number.sprinkler_total_rain_fallen') |
-              float(0) <= 10 -%}
+              {% if states('input_number.sprinkler_total_rain_fallen') | float(0) <= 10 -%}
                 green
-              {%- elif
-              states('input_number.sprinkler_total_rain_fallen') |
-              float(0) <= 15 -%}
+              {%- elif states('input_number.sprinkler_total_rain_fallen') | float(0) <= 15 -%}
                 amber
-              {%- elif
-              states('input_number.sprinkler_total_rain_fallen') |
-              float(0) <= 20 -%}
+              {%- elif states('input_number.sprinkler_total_rain_fallen') | float(0) <= 20 -%}
                 orange
               {%- else -%}
                 red
@@ -378,8 +364,7 @@ Here you go! Here's the dashboard code. You need to have mushroom cards and the 
               action: more-info
           - type: custom:mushroom-template-card
             primary: >-
-              {{ (states('input_datetime.sprinkler_last_watering_day') |
-              as_datetime).strftime('%d-%m-%Y') }}
+              {{ (states('input_datetime.sprinkler_last_watering_day') | as_datetime).strftime('%d-%m-%Y') }}
             secondary: Last Watering Day
             icon: mdi:calendar
             entity: input_datetime.sprinkler_last_watering_day
@@ -387,22 +372,18 @@ Here you go! Here's the dashboard code. You need to have mushroom cards and the 
             tap_action:
               action: more-info
           - type: custom:mushroom-template-card
-            primary: '{{ states(''input_number.sprinkler_watering_duration'') }} '
+            primary: '{{ states(''input_number.sprinkler_watering_duration'') }}'
             secondary: Watering Duration
             icon: mdi:timer
             entity: input_number.sprinkler_watering_duration
             icon_color: >-
-              {% if states('input_number.sprinkler_watering_duration') | int ==
-              45 -%}
+              {% if states('input_number.sprinkler_watering_duration') | int == 45 -%}
                 green
-              {%- elif states('input_number.sprinkler_watering_duration') | int
-              == 60 -%}
+              {%- elif states('input_number.sprinkler_watering_duration') | int == 60 -%}
                 amber
-              {%- elif states('input_number.sprinkler_watering_duration') | int
-              == 75 -%}
+              {%- elif states('input_number.sprinkler_watering_duration') | int == 75 -%}
                 orange
-              {%- elif states('input_number.sprinkler_watering_duration') | int
-              == 90 -%}
+              {%- elif states('input_number.sprinkler_watering_duration') | int == 90 -%}
                 red
               {%- else -%}
                 grey
@@ -418,14 +399,12 @@ Here you go! Here's the dashboard code. You need to have mushroom cards and the 
         cards:
           - type: custom:mushroom-template-card
             primary: >
-              {{ states('sensor.sprinkler_current_temperature_is_higher') |
-              capitalize }}
+              {{ states('sensor.sprinkler_current_temperature_is_higher') | capitalize }}
             secondary: Current Temp is Higher?
             icon: mdi:check
             entity: sensor.sprinkler_current_temperature_is_higher
             icon_color: >-
-              {% if states('sensor.sprinkler_current_temperature_is_higher') ==
-              true -%}
+              {% if states('sensor.sprinkler_current_temperature_is_higher') == true -%}
                 green
               {%- else -%}
                 red
@@ -437,15 +416,13 @@ Here you go! Here's the dashboard code. You need to have mushroom cards and the 
               {{ states('sensor.openweathermap_rain') }} mm
             secondary: Openweathermap Rain
             icon: >-
-              {% if states('sensor.openweathermap_condition') == 'partlycloudy'
-              -%}
+              {% if states('sensor.openweathermap_condition') == 'partlycloudy' -%}
                 mdi:weather-partly-cloudy
               {% elif states('sensor.openweathermap_condition') == 'cloudy' -%}
                 mdi:weather-cloudy
               {% elif states('sensor.openweathermap_condition') == 'rainy' -%}
                 mdi:weather-pouring
-              {% elif states('sensor.openweathermap_condition') == 'clear-night'
-              -%}
+              {% elif states('sensor.openweathermap_condition') == 'clear-night' -%}
                 mdi:weather-night
               {% elif states('sensor.openweathermap_condition') == 'sunny' -%}
                 mdi:weather-sunny
@@ -466,16 +443,14 @@ Here you go! Here's the dashboard code. You need to have mushroom cards and the 
               {{ states('sensor.sprinkler_total_expected_precipitation') }} mm
             secondary: Expected Precipitation
             icon: >-
-              {% if states('sensor.sprinkler_total_expected_precipitation') |
-              float(0) == 0 -%}
+              {% if states('sensor.sprinkler_total_expected_precipitation') | float(0) == 0 -%}
                 mdi:weather-cloudy
               {%- else -%}
                 mdi:weather-pouring
               {%- endif %}
             entity: sensor.sprinkler_total_expected_precipitation
             icon_color: >-
-              {% if states('sensor.sprinkler_total_expected_precipitation') |
-              float(0) == 0 -%}
+              {% if states('sensor.sprinkler_total_expected_precipitation') | float(0) == 0 -%}
                 grey
               {%- else -%}
                 amber
@@ -489,17 +464,13 @@ Here you go! Here's the dashboard code. You need to have mushroom cards and the 
             icon: mdi:thermometer
             entity: sensor.openweathermap_temperature
             icon_color: >-
-              {% if states('sensor.openweathermap_temperature') | float(0) <= 15
-              -%}
+              {% if states('sensor.openweathermap_temperature') | float(0) <= 15 -%}
                 light-blue
-              {% elif states('sensor.openweathermap_temperature') | float(0) <=
-              21 -%}
+              {% elif states('sensor.openweathermap_temperature') | float(0) <= 21 -%}
                 amber
-              {% elif states('sensor.openweathermap_temperature') | float(0) <=
-              26 -%}
+              {% elif states('sensor.openweathermap_temperature') | float(0) <= 26 -%}
                 orange
-              {% elif states('sensor.openweathermap_temperature') | float(0) <=
-              31 -%}
+              {% elif states('sensor.openweathermap_temperature') | float(0) <= 31 -%}
                 deep-orange
               {%- else -%}
                 red
