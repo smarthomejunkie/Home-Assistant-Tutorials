@@ -364,11 +364,11 @@ Here you go! Here's the dashboard code. You need to have mushroom cards and the 
               float(0) <= 10 -%}
                 green
               {%- elif
-              states('input_number.sprinkler_maximum_total_rain_fallen') |
+              states('input_number.sprinkler_total_rain_fallen') |
               float(0) <= 15 -%}
                 amber
               {%- elif
-              states('input_number.sprinkler_maximum_total_rain_fallen') |
+              states('input_number.sprinkler_total_rain_fallen') |
               float(0) <= 20 -%}
                 orange
               {%- else -%}
