@@ -30,7 +30,7 @@ This code is here for your convenience and works 100% if everything is installed
           {%- endif -%}
           {%- set ns.totalprecipitation = ns.totalprecipitation + precipitation -%}
         {%- endfor %}
-        {{ ns.totalprecipitation | float(0) | round(0) }}
+        {{ ns.totalprecipitation | float(0) | round(2) }}
 
     ##### Sprinkler Total Rain Fallen Plus Expected ##################################
     - name: "Sprinkler Total Rain Fallen Plus Expected"
