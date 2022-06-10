@@ -108,7 +108,7 @@ action:
           - condition: numeric_state
             entity_id: sensor.sprinkler_days_since_last_watering_day
             above: '2'
-            below: '3'
+            below: '4'
           - condition: numeric_state
             entity_id: input_number.sprinkler_maximum_temperature_measured
             above: '26'
