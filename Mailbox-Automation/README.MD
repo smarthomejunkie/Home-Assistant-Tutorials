@@ -12,6 +12,7 @@ Get the [Aqara Door Sensor](https://s.click.aliexpress.com/e/_A26g2H)
 At the time when I created the video, there was a different (old) way of creating template sensors. In the meantime, a new modern way is developed. The code below uses the new modern way of using template sensors. The video is still valid, but you should use the new approach if you use a templates.yaml file.
 
 **Step 1:** Create a templates.yaml file in your config folder
+
 **Step 2:** Add the following line to your configuration.yaml:
 
 ```
