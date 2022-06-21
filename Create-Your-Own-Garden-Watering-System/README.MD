@@ -30,7 +30,7 @@ This code is here for your convenience and works 100% if everything is installed
           {%- endif -%}
           {%- set ns.totalprecipitation = ns.totalprecipitation + precipitation -%}
         {%- endfor %}
-        {{ ns.totalprecipitation | float(0) | round(0) }}
+        {{ ns.totalprecipitation | float(0) | round(2) }}
 
     ##### Sprinkler Total Rain Fallen Plus Expected ##################################
     - name: "Sprinkler Total Rain Fallen Plus Expected"
@@ -108,7 +108,7 @@ action:
           - condition: numeric_state
             entity_id: sensor.sprinkler_days_since_last_watering_day
             above: '2'
-            below: '3'
+            below: '4'
           - condition: numeric_state
             entity_id: input_number.sprinkler_maximum_temperature_measured
             above: '26'
@@ -258,73 +258,8 @@ icon: mdi:sprinkler
 
 Some people asked me what would happen if Home Assistant reboots during watering. In that case, the sprinkler would go on until the next time that the sprinkler timer is triggered, but you can easily circumvent this:
 
-1. Create a toggle (input_boolean) helper: Sprinkler State
-2. Change the script: **Sprinkler: Water the garden** to turn on the sprinkler state when the sprinkler starts:
+Create an automation that checks if the sprinkler is still running if Home Assistant is rebooted and stop the sprinkler if that is the case:
 
-```
-alias: 'Sprinkler: Water the Garden'
-sequence:
-  - service: input_boolean.turn_on
-    data: {}
-    target:
-      entity_id: input_boolean.sprinkler_state
-  - service: notify.mobile_app_iphone_x_ed
-    data:
-      message: >-
-        Start watering the garden for {{
-        states("input_number.sprinkler_watering_duration") | int }} minutes.
-  - type: turn_on
-    device_id: 8137a99e9f2fc80d6d0b0192ef801c0a
-    entity_id: switch.sw_plug_2
-    domain: switch
-  - delay:
-      minutes: |
-        {{ states("input_number.sprinkler_watering_duration") | int }}
-  - type: turn_off
-    device_id: 8137a99e9f2fc80d6d0b0192ef801c0a
-    entity_id: switch.sw_plug_2
-    domain: switch
-  - service: script.sprinkler_reset_helper_values
-    data: {}
-  - service: notify.mobile_app_iphone_x_ed
-    data:
-      message: Stopped Watering the Garden
-mode: single
-icon: mdi:sprinkler
-```
-3. Change the script: **Sprinkler: Reset Helper Values** to turn off the sprinkler state too:
-
-```
-alias: 'Sprinkler: Reset Helper Values'
-sequence:
-  - service: input_number.set_value
-    data:
-      value: 0
-    target:
-      entity_id:
-        - input_number.sprinkler_total_rain_fallen
-        - input_number.sprinkler_watering_duration
-  - service: input_datetime.set_datetime
-    entity_id: input_datetime.sprinkler_last_watering_day
-    data_template:
-      datetime: '{{ now() }}'
-  - service: input_number.set_value
-    data_template:
-      value: '{{ states(''sensor.openweathermap_temperature'') }}'
-    target:
-      entity_id: input_number.sprinkler_maximum_temperature_measured
-  - service: input_boolean.turn_off
-    data: {}
-    target:
-      entity_id: input_boolean.sprinkler_state
-  - service: notify.mobile_app_iphone_x_ed
-    data:
-      message: Now resetting the Sprinkler values
-mode: single
-icon: mdi:refresh
-```
-
-4. Create an automation that checks if the sprinkler is still running if Home Assistant is rebooted and stop the sprinkler if that is the case:
 ```
 alias: >-
   Sprinkler: Check if Sprinkler is still running after a reboot of Home
@@ -333,17 +268,34 @@ description: ''
 trigger:
   - platform: homeassistant
     event: start
-condition:
-  - condition: state
-    entity_id: input_boolean.sprinkler_state
-    state: 'on'
+condition: []
 action:
-  - type: turn_off
-    device_id: 8137a99e9f2fc80d6d0b0192ef801c0a
-    entity_id: switch.sw_plug_2
-    domain: switch
-  - service: script.sprinkler_reset_helper_values
-    data: {}
+  - repeat:
+      until:
+        - condition: not
+          conditions:
+            - condition: state
+              entity_id: switch.sw_plug_2
+              state: unknown
+      sequence:
+        - delay:
+            hours: 0
+            minutes: 1
+            seconds: 0
+            milliseconds: 0
+  - if:
+      - condition: device
+        type: is_on
+        device_id: 8137a99e9f2fc80d6d0b0192ef801c0a
+        entity_id: switch.sw_plug_2
+        domain: switch
+    then:
+      - type: turn_off
+        device_id: 8137a99e9f2fc80d6d0b0192ef801c0a
+        entity_id: switch.sw_plug_2
+        domain: switch
+      - service: script.sprinkler_reset_helper_values
+        data: {}
 mode: single
 ```
 
@@ -364,14 +316,8 @@ Here you go! Here's the dashboard code. You need to have mushroom cards and the 
         chips:
           - type: back
           - type: entity
-            entity: input_boolean.sprinkler_state
-            icon_color: light-green
-            tap_action:
-              action: toggle
-            hold_action:
-              action: more-info
-            double_tap_action:
-              action: more-info
+            entity: switch.sw_plug_2
+            icon: mdi:sprinkler
       - type: custom:mushroom-title-card
         title: ''
         subtitle: Helpers
@@ -381,24 +327,19 @@ Here you go! Here's the dashboard code. You need to have mushroom cards and the 
         cards:
           - type: custom:mushroom-template-card
             primary: >-
-              {{ states('input_number.sprinkler_maximum_temperature_measured')
-              }} °C
+              {{ states('input_number.sprinkler_maximum_temperature_measured') }} °C
             secondary: Max temperature
             icon: mdi:thermometer
             entity: input_number.sprinkler_maximum_temperature_measured
             icon_color: >-
-              {% if
-              states('input_number.sprinkler_maximum_temperature_measured') |
-              float(0) <= 15.1 -%}
+              {% if states('input_number.sprinkler_maximum_temperature_measured') | float(0) <= 15.1 -%}
                 light-blue
-              {%- elif
-              states('input_number.sprinkler_maximum_temperature_measured') |
-              float(0) <= 21.1 -%}
+              {%- elif states('input_number.sprinkler_maximum_temperature_measured') | float(0) <= 21.1 -%}
                 amber
-              {%- elif
-              states('input_number.sprinkler_maximum_temperature_measured') |
-              float(0) <= 30.1 -%}
+              {%- elif states('input_number.sprinkler_maximum_temperature_measured') | float(0) <= 26.1 -%}
                 orange
+              {%- elif states('input_number.sprinkler_maximum_temperature_measured') | float(0) <= 31.1 -%}
+                deep-orange
               {%- else -%}
                 red
               {%- endif %}
@@ -410,16 +351,11 @@ Here you go! Here's the dashboard code. You need to have mushroom cards and the 
             icon: mdi:weather-pouring
             entity: input_number.sprinkler_total_rain_fallen
             icon_color: >-
-              {% if states('input_number.sprinkler_total_rain_fallen') |
-              float(0) <= 10 -%}
+              {% if states('input_number.sprinkler_total_rain_fallen') | float(0) <= 10 -%}
                 green
-              {%- elif
-              states('input_number.sprinkler_maximum_total_rain_fallen') |
-              float(0) <= 15 -%}
+              {%- elif states('input_number.sprinkler_total_rain_fallen') | float(0) <= 15 -%}
                 amber
-              {%- elif
-              states('input_number.sprinkler_maximum_total_rain_fallen') |
-              float(0) <= 20 -%}
+              {%- elif states('input_number.sprinkler_total_rain_fallen') | float(0) <= 20 -%}
                 orange
               {%- else -%}
                 red
@@ -427,7 +363,8 @@ Here you go! Here's the dashboard code. You need to have mushroom cards and the 
             tap_action:
               action: more-info
           - type: custom:mushroom-template-card
-            primary: '{{ states(''input_datetime.sprinkler_last_watering_day'') }}'
+            primary: >-
+              {{ (states('input_datetime.sprinkler_last_watering_day') | as_datetime).strftime('%d-%m-%Y') }}
             secondary: Last Watering Day
             icon: mdi:calendar
             entity: input_datetime.sprinkler_last_watering_day
@@ -435,22 +372,18 @@ Here you go! Here's the dashboard code. You need to have mushroom cards and the 
             tap_action:
               action: more-info
           - type: custom:mushroom-template-card
-            primary: '{{ states(''input_number.sprinkler_watering_duration'') }} '
+            primary: '{{ states(''input_number.sprinkler_watering_duration'') }}'
             secondary: Watering Duration
             icon: mdi:timer
             entity: input_number.sprinkler_watering_duration
             icon_color: >-
-              {% if states('input_number.sprinkler_watering_duration') | int ==
-              45 -%}
+              {% if states('input_number.sprinkler_watering_duration') | int == 45 -%}
                 green
-              {%- elif states('input_number.sprinkler_watering_duration') | int
-              == 60 -%}
+              {%- elif states('input_number.sprinkler_watering_duration') | int == 60 -%}
                 amber
-              {%- elif states('input_number.sprinkler_watering_duration') | int
-              == 75 -%}
+              {%- elif states('input_number.sprinkler_watering_duration') | int == 75 -%}
                 orange
-              {%- elif states('input_number.sprinkler_watering_duration') | int
-              == 90 -%}
+              {%- elif states('input_number.sprinkler_watering_duration') | int == 90 -%}
                 red
               {%- else -%}
                 grey
@@ -466,14 +399,12 @@ Here you go! Here's the dashboard code. You need to have mushroom cards and the 
         cards:
           - type: custom:mushroom-template-card
             primary: >
-              {{ states('sensor.sprinkler_current_temperature_is_higher') |
-              capitalize }}
+              {{ states('sensor.sprinkler_current_temperature_is_higher') | capitalize }}
             secondary: Current Temp is Higher?
             icon: mdi:check
             entity: sensor.sprinkler_current_temperature_is_higher
             icon_color: >-
-              {% if states('sensor.sprinkler_current_temperature_is_higher') ==
-              true -%}
+              {% if states('sensor.sprinkler_current_temperature_is_higher') == true -%}
                 green
               {%- else -%}
                 red
@@ -485,15 +416,13 @@ Here you go! Here's the dashboard code. You need to have mushroom cards and the 
               {{ states('sensor.openweathermap_rain') }} mm
             secondary: Openweathermap Rain
             icon: >-
-              {% if states('sensor.openweathermap_condition') == 'partlycloudy'
-              -%}
+              {% if states('sensor.openweathermap_condition') == 'partlycloudy' -%}
                 mdi:weather-partly-cloudy
               {% elif states('sensor.openweathermap_condition') == 'cloudy' -%}
                 mdi:weather-cloudy
               {% elif states('sensor.openweathermap_condition') == 'rainy' -%}
                 mdi:weather-pouring
-              {% elif states('sensor.openweathermap_condition') == 'clear-night'
-              -%}
+              {% elif states('sensor.openweathermap_condition') == 'clear-night' -%}
                 mdi:weather-night
               {% elif states('sensor.openweathermap_condition') == 'sunny' -%}
                 mdi:weather-sunny
@@ -514,16 +443,14 @@ Here you go! Here's the dashboard code. You need to have mushroom cards and the 
               {{ states('sensor.sprinkler_total_expected_precipitation') }} mm
             secondary: Expected Precipitation
             icon: >-
-              {% if states('sensor.sprinkler_total_expected_precipitation') |
-              float(0) == 0 -%}
+              {% if states('sensor.sprinkler_total_expected_precipitation') | float(0) == 0 -%}
                 mdi:weather-cloudy
               {%- else -%}
                 mdi:weather-pouring
               {%- endif %}
             entity: sensor.sprinkler_total_expected_precipitation
             icon_color: >-
-              {% if states('sensor.sprinkler_total_expected_precipitation') |
-              float(0) == 0 -%}
+              {% if states('sensor.sprinkler_total_expected_precipitation') | float(0) == 0 -%}
                 grey
               {%- else -%}
                 amber
@@ -537,15 +464,14 @@ Here you go! Here's the dashboard code. You need to have mushroom cards and the 
             icon: mdi:thermometer
             entity: sensor.openweathermap_temperature
             icon_color: >-
-              {% if states('sensor.openweathermap_temperature') | float(0) <= 15
-              -%}
+              {% if states('sensor.openweathermap_temperature') | float(0) <= 15 -%}
                 light-blue
-              {% elif states('sensor.openweathermap_temperature') | float(0) <=
-              21 -%}
+              {% elif states('sensor.openweathermap_temperature') | float(0) <= 21 -%}
                 amber
-              {% elif states('sensor.openweathermap_temperature') | float(0) <=
-              26 -%}
+              {% elif states('sensor.openweathermap_temperature') | float(0) <= 26 -%}
                 orange
+              {% elif states('sensor.openweathermap_temperature') | float(0) <= 31 -%}
+                deep-orange
               {%- else -%}
                 red
               {%- endif %}

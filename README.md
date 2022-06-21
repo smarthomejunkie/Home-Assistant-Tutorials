@@ -5,7 +5,7 @@ Example code for Home Assistant Tutorials for the Smart Home Junkie channel on Y
 
 I will post all the code here that you can use while you follow a tutorial on the Youtube channel.
 
-* [Create your own Watering System](https://github.com/smarthomejunkie/Home-Assistant-Tutorials/raw/master/Create-Your-Own-Garden-Watering-System-In-Home-Assistant/)
+* [Create your own Watering System](https://github.com/smarthomejunkie/Home-Assistant-Tutorials/blob/master/Create-Your-Own-Garden-Watering-System/)
 * [Low Battery Warning Sensor](https://github.com/smarthomejunkie/Home-Assistant-Tutorials/tree/master/Low-Battery-Warning-Sensor)
 * [Dwains Dashboard In-Depth](https://github.com/smarthomejunkie/Home-Assistant-Tutorials/tree/master/Dwains-Dashboard-In-Depth)
 * [New Settings Menu](https://github.com/smarthomejunkie/Home-Assistant-Tutorials/tree/master/New-Settings-Menu)
