@@ -1,6 +1,6 @@
-# Create Your Own Garden Watering System in Home Assistant - TUTORIAL
+# Adaptive Lighting in Home Assistant - TUTORIAL
 
-<a href="https://youtu.be/c1cnccmgl3k" target="_blank"><img src="https://github.com/smarthomejunkie/Home-Assistant-Tutorials/blob/master/Adaptibe-Lighting-In-Home-Assistant/Adaptive-Lighting-In-Home-Assistant-Tutorial-Thumb.png?raw=true"></a>
+<a href="https://youtu.be/c1cnccmgl3k" target="_blank"><img src="https://github.com/smarthomejunkie/Home-Assistant-Tutorials/blob/master/Adaptive-Lighting-In-Home-Assistant/Adaptive-Lighting-In-Home-Assistant-Tutorial-Thumb.png?raw=true"></a>
 
 <a href="https://www.patreon.com/bePatron?u=50155158" target="_blank"><img src="https://github.com/smarthomejunkie/Home-Assistant-Tutorials/blob/master/become-a-patron.png?raw=true" alt="Become a Patron!"></a>
 
