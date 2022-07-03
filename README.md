@@ -5,6 +5,7 @@ Example code for Home Assistant Tutorials for the Smart Home Junkie channel on Y
 
 I will post all the code here that you can use while you follow a tutorial on the Youtube channel.
 
+* [Zemismart Smart Super Curtain Robot Motor](https://github.com/smarthomejunkie/Home-Assistant-Tutorials/tree/master/Zemismart-Smart-Super-Curtain-Robot-Motor)
 * [Adaptive Lighting in Home Assistant](https://github.com/smarthomejunkie/Home-Assistant-Tutorials/tree/master/Adaptive-Lighting-In-Home-Assistant/)
 * [Create your own Watering System](https://github.com/smarthomejunkie/Home-Assistant-Tutorials/tree/master/Create-Your-Own-Garden-Watering-System/)
 * [Low Battery Warning Sensor](https://github.com/smarthomejunkie/Home-Assistant-Tutorials/tree/master/Low-Battery-Warning-Sensor)
