@@ -254,7 +254,7 @@ icon: mdi:sprinkler
 
 # EXTRA
 
-# Check if sprinkler still runs after Home Assistant restarted
+# Check if the sprinkler still runs after Home Assistant restarts
 
 Some people asked me what would happen if Home Assistant reboots during watering. In that case, the sprinkler would go on until the next time that the sprinkler timer is triggered, but you can easily circumvent this:
 
