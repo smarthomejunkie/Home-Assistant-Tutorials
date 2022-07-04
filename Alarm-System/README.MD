@@ -6,6 +6,8 @@
 
 The instructions for this tutorial can be found [in this YouTube video](https://youtu.be/jh8l2K5oips).
 
+View the list of my devices and the devices that I recommend [on this page](https://github.com/smarthomejunkie/MyDevices/)
+
 ## The Files:
 
 * In the config folder you will find the code that you can add to your configuration.yaml

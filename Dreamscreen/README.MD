@@ -4,6 +4,8 @@ This is the code you need for the integration of Dreamscreen in Home Assistant.
 If this code helped you in any way, you can support me by subscribing to my YouTube channel. You will find loads of other interesting tutorials there.
 Visit my YouTube channel: [Smart Home Junkie](https://www.youtube.com/channel/UCVtQ4AOSmCFUuvixddYiSxw)
 
+View the list of my devices and the devices that I recommend [on this page](https://github.com/smarthomejunkie/MyDevices/)
+
 If this helped and saved you time, you can support me by becoming my Patron. I'd really appreciate that.
 
 <a href="https://www.patreon.com/bePatron?u=50155158" target="_blank"><img src="https://github.com/smarthomejunkie/Home-Assistant-Tutorials/blob/master/become-a-patron.png?raw=true" alt="Become a Patron!"></a>

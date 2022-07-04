@@ -6,6 +6,8 @@
 
 The instructions for this tutorial can be found [in this YouTube video](https://youtu.be/cdz32TLu_gw).
 
+View the list of my devices and the devices that I recommend [on this page](https://github.com/smarthomejunkie/MyDevices/)
+
 The custom sensor code used in the video is:
  
 ```

@@ -4,6 +4,8 @@
 
 The instructions for this tutorial can be found [in this YouTube video](https://youtu.be/6hemFbrJuk8).
 
+View the list of my devices and the devices that I recommend [on this page](https://github.com/smarthomejunkie/MyDevices/)
+
 The code for the mushroom template card to change the icon is:
 
 ```

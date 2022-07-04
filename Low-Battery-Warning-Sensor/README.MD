@@ -6,6 +6,8 @@
 
 The instructions for this tutorial can be found [in this YouTube video](https://youtu.be/VgV_ExVeSfE).
 
+View the list of my devices and the devices that I recommend [on this page](https://github.com/smarthomejunkie/MyDevices/)
+
 The Sensor Template code :
 
 ```

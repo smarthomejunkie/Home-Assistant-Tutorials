@@ -4,6 +4,8 @@
 
 The cheat sheet provided here is explained [in this YouTube video](https://youtu.be/PncDL3bV1SA).
 
+View the list of my devices and the devices that I recommend [on this page](https://github.com/smarthomejunkie/MyDevices/)
+
 This cheat sheet comes in handy if you are following tutorials that were created before Home Assistant changed the configuration menu to the Settings menu.
 
 * The cheat sheet can be downloaded [here](https://github.com/smarthomejunkie/Home-Assistant-Tutorials/raw/master/New-Settings-Menu/Old-Configuration-Menu-versus-New-System-menu.pdf)

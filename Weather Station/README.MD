@@ -5,6 +5,8 @@ You can put it in your lovelace dashboard custom card.
 
 The instructions to build your own weather station can be found [in this YouTube video](https://youtu.be/Xu5cvMfCohU).
 
+View the list of my devices and the devices that I recommend [on this page](https://github.com/smarthomejunkie/MyDevices/)
+
 <a href="https://www.buymeacoffee.com/smarthomejunkie" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-blue.png" alt="Buy Me A Coffee" height="51" width="217" ></a>
 
 ## DISCLAIMER

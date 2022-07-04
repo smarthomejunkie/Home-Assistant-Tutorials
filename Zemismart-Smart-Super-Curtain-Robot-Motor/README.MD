@@ -6,6 +6,8 @@
 
 The product review can be found [in this YouTube video](https://youtu.be/8tXyjVQEF8o).
 
+View the list of my devices and the devices that I recommend [on this page](https://github.com/smarthomejunkie/MyDevices/)
+
 You can copy and paste the code used in this video
 
 **The code to add to the configuration.yaml of Zigbee2MQTT:**

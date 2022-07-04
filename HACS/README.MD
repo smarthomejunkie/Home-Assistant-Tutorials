@@ -1,4 +1,7 @@
 # Install HACS in Home Assistant
+
+View the list of my devices and the devices that I recommend [on this page](https://github.com/smarthomejunkie/MyDevices/)
+
 This is the code you need for installinmg HACS in Home Assistant. 
 
 wget -q -O - https://install.hacs.xyz | bash -

@@ -6,6 +6,8 @@
 
 The instructions for this tutorial can be found [in this YouTube video](https://www.youtube.com/watch?v=-4KGdPh6ur0).
 
+View the list of my devices and the devices that I recommend [on this page](https://github.com/smarthomejunkie/MyDevices/)
+
 Get the [Aqara Door Sensor](https://s.click.aliexpress.com/e/_A26g2H)
 
 ## NEW WAY OF CREATING TEMPLATE SENSORS

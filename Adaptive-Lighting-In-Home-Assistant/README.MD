@@ -6,6 +6,8 @@
 
 The instructions for this tutorial can be found [in this YouTube video](https://youtu.be/c1cnccmgl3k).
 
+View the list of my devices and the devices that I recommend [on this page](https://github.com/smarthomejunkie/MyDevices/)
+
 You can copy and paste the code used in this video, but please make sure that you replace the entities in this code by your own entities.
 This code is here for your convenience and works 100% if everything is installed correctly. If something is not working in your install, please review your installation and check the sensors in your Developer Tools to see what might be missing in your setup.
 

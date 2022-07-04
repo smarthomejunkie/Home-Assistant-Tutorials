@@ -3,6 +3,8 @@ This is the file with code you need for your configuration.yaml
 
 The instructions for this tutorial can be found [in this YouTube video](https://youtu.be/0Nf70avId0w).
 
+View the list of my devices and the devices that I recommend [on this page](https://github.com/smarthomejunkie/MyDevices/)
+
 If this helped and saved you time, you can support me by becoming my Patron. I'd really appreciate that.
 
 <a href="https://www.patreon.com/bePatron?u=50155158" target="_blank"><img src="https://github.com/smarthomejunkie/Home-Assistant-Tutorials/blob/master/become-a-patron.png?raw=true" alt="Become a Patron!"></a>
