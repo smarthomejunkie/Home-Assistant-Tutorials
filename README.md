@@ -3,6 +3,8 @@ Example code for Home Assistant Tutorials for the Smart Home Junkie channel on Y
 
 <a href="https://www.patreon.com/bePatron?u=50155158" target="_blank"><img src="https://github.com/smarthomejunkie/Home-Assistant-Tutorials/blob/master/become-a-patron.png?raw=true" alt="Become a Patron!"></a>
 
+View the list of my devices and the devices that I recommend [on this page](https://github.com/smarthomejunkie/MyDevices/)
+
 I will post all the code here that you can use while you follow a tutorial on the Youtube channel.
 
 * [Zemismart Smart Super Curtain Robot Motor](https://github.com/smarthomejunkie/Home-Assistant-Tutorials/tree/master/Zemismart-Smart-Super-Curtain-Robot-Motor)
