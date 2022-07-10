@@ -4,7 +4,7 @@
 
 <a href="https://www.patreon.com/bePatron?u=50155158" target="_blank"><img src="https://github.com/smarthomejunkie/Home-Assistant-Tutorials/blob/master/become-a-patron.png?raw=true" alt="Become a Patron!"></a>
 
-The instructions for this tutorial can be found [in this YouTube video](https://youtu.be/jh8l2K5oips).
+The instructions for this tutorial can be found [in this YouTube video](https://youtu.be/jh8l2K5oips) and [in this blog post](https://www.smarthomejunkie.net/create-a-professional-alarm-system-in-home-assistant-this-is-how-new-version-tutorial/).
 
 View the list of my devices and the devices that I recommend [on this page](https://github.com/smarthomejunkie/MyDevices/)
 
@@ -169,11 +169,15 @@ action:
 mode: single
 ```
 
-If this helped and saved you time, you can support me by becoming my Patron. I'd really appreciate that.
+Visit my YouTube channel: [Smart Home Junkie](https://www.youtube.com/c/SmartHomeJunkie)
+
+If this helped and saved you time, you can support me by becoming my Patron, buy my a coffee or join my channel. I'd really appreciate that.
 
 <a href="https://www.patreon.com/bePatron?u=50155158" target="_blank"><img src="https://github.com/smarthomejunkie/Home-Assistant-Tutorials/blob/master/become-a-patron.png?raw=true" alt="Become a Patron!"></a>
 
 <a href="https://www.buymeacoffee.com/smarthomejunkie" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-blue.png" alt="Buy Me A Coffee" height="51" width="217" ></a>
+
+<a href="https://www.youtube.com/c/smarthomejunkie/join" target="_blank"><img src="https://github.com/smarthomejunkie/Home-Assistant-Tutorials/blob/master/Join-Logo.png?raw=true" alt="Join my Channel!"></a>
 
 ## DISCLAIMER
 * **NEVER REPLACE YOUR FILES BY THE FILES IN THIS REPOSITORY WITHOUT CREATING A BACKUP FIRST!**
