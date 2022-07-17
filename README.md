@@ -7,7 +7,7 @@ View the list of my devices and the devices that I recommend [on this page](http
 
 I will post all the code here that you can use while you follow a tutorial on the Youtube channel.
 
-* [How to us Motion Sensors in Home Assistant](https://github.com/smarthomejunkie/Home-Assistant-Tutorials/tree/master/How-To-USE-Motion-Sensors-In-Home-Assistant)
+* [How to use Motion Sensors in Home Assistant](https://github.com/smarthomejunkie/Home-Assistant-Tutorials/tree/master/How-To-Use-Motion-Sensors-In-Home-Assistant)
 * [How to build a Perfect NFC Tag Reader for Home Assistant](https://github.com/smarthomejunkie/Home-Assistant-Tutorials/tree/master/How-to-build-a-perfect-NFC-Tag-Reader-for-Home-Assistant)
 * [Zemismart Smart Super Curtain Robot Motor](https://github.com/smarthomejunkie/Home-Assistant-Tutorials/tree/master/Zemismart-Smart-Super-Curtain-Robot-Motor)
 * [Adaptive Lighting in Home Assistant](https://github.com/smarthomejunkie/Home-Assistant-Tutorials/tree/master/Adaptive-Lighting-In-Home-Assistant/)
