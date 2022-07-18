@@ -256,6 +256,39 @@ action:
 mode: single
 ```
 
+# Extra Use Cases:
+
+**Turn off the lights if someone approached the house and decides not to go in**
+Currently, in Use Case 2, if someone approaches the house, the lights outside and inside turn on. If he decides not to enter the house,
+only the outside ligth will turn off. To fix this use case, we have to add a Helper Group of type binary sensor to Home Assistant. Let's call the Helper Group "all motion sensors". Add the motion sensor for the hall outside and the motion sensor for the hall inside to this group.
+
+Now, create an automation that turns off all lights if all motion sensors stopped detecting motion for 5 minutes:
+
+```
+alias: 'Motion Sensor Tutorial 3: Turn everything off'
+description: ''
+mode: single
+trigger:
+  - platform: state
+    entity_id:
+      - binary_sensor.all_motion_sensors
+    to: 'off'
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+condition: []
+action:
+  - type: turn_off
+    device_id: 0ab60e7c39c3e96a2e1d09fb1bb8653d
+    entity_id: light.hall_inside
+    domain: light
+  - type: turn_off
+    device_id: 32bcf104a4d155b6c092c427d76d85dd
+    entity_id: light.hall_outside
+    domain: light
+
+
 If this helped and saved you time, you can support me by becoming my Patron, buy my a coffee or join my channel. I'd really appreciate that.
 
 <a href="https://www.patreon.com/bePatron?u=50155158" target="_blank"><img src="https://github.com/smarthomejunkie/Home-Assistant-Tutorials/blob/master/become-a-patron.png?raw=true" alt="Become a Patron!"></a>
