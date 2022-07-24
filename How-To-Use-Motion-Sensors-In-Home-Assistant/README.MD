@@ -259,6 +259,7 @@ mode: single
 # Extra Use Cases:
 
 **Use Case 4: Turn off the lights if someone approached the house and decides not to go in**
+
 Currently, in Use Case 2, if someone approaches the house, the lights outside and inside turn on. If he decides not to enter the house,
 only the outside light will turn off. To fix this use case, we have to add a Helper Group of type binary sensor to Home Assistant. Let's call the Helper Group "all motion sensors hall". Add the motion sensor for the hall outside and the motion sensor for the hall inside to this group. Leave the setting "All entities" to off.
 
@@ -290,6 +291,7 @@ action:
 ```
 
 **Use Case 5: Turn off the lights if someone only enters the boiler room, does not enter the garage, and goes back upstairs**
+
 Currently, in Use Case 3, if someone enters the boiler room, the lights in the staircase, boiler room, and garage turn on. If he decides not to enter the garage, only the light in the boiler room and staircase will turn off. The light in the garage will stay turned on. To fix this use case, we have to add a Helper Group of type binary sensor to Home Assistant. Let's call the Helper Group "all motion sensors". Add the motion sensor for the staircase, the boiler room, and the garage to this group. Leave the setting "All entities" to off.
 
 Now, create an automation that turns off all lights if all motion sensors stopped detecting motion for 5 minutes:
