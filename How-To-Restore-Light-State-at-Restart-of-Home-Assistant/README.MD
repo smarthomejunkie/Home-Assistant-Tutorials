@@ -1,6 +1,6 @@
 # How to Restore Light State at Restart of  Home Assistant
 
-<a href="https://youtu.be/m_fbo_Co-TU" target="_blank"><img src="https://github.com/smarthomejunkie/Home-Assistant-Tutorials/blob/master/How-To-Use-Motion-Sensors-In-Home-Assistant/How-To-Restore-Light-State-At-Restart-Of-Home-Assistant-thumb.jpg?raw=true"></a>
+<a href="https://youtu.be/m_fbo_Co-TU" target="_blank"><img src="https://github.com/smarthomejunkie/Home-Assistant-Tutorials/blob/master/How-To-Restore-Light-State-at-Restart-of-Home-Assistant/How-To-Restore-Light-State-At-Restart-Of-Home-Assistant-thumb.jpg?raw=true"></a>
 
 <a href="https://www.patreon.com/bePatron?u=50155158" target="_blank"><img src="https://github.com/smarthomejunkie/Home-Assistant-Tutorials/blob/master/become-a-patron.png?raw=true" alt="Become a Patron!"></a>
 
