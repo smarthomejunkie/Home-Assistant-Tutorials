@@ -44,33 +44,95 @@ mode: restart
 ```
 
 ```
-alias: 'Tag: Arm and Disarm alarm'
+alias: 'Tagreader: Set led color'
 description: ''
 trigger:
-  - platform: tag
-    tag_id: 23-D1-81-A1
-    id: tag-detected
-  - platform: tag
-    tag_id: 23-E2-79-12
-    id: tag-detected
+  - platform: state
+    entity_id:
+      - alarm_control_panel.home_alarm
+    to: armed_away
+    id: armed_away
+  - platform: state
+    entity_id:
+      - alarm_control_panel.home_alarm
+    to: disarmed
+    id: disarmed
+  - platform: state
+    entity_id:
+      - alarm_control_panel.home_alarm
+    to: arming
+    id: arming
+  - platform: state
+    entity_id:
+      - alarm_control_panel.home_alarm
+    id: pending
+    to: pending
 condition: []
 action:
-  - if:
-      - condition: state
-        entity_id: alarm_control_panel.home_alarm
-        state: disarmed
-    then:
-      - service: alarm_control_panel.alarm_arm_away
-        data: {}
-        target:
-          entity_id: alarm_control_panel.home_alarm
-    else:
-      - service: alarm_control_panel.alarm_disarm
-        data:
-          code: '1234'
-        target:
-          entity_id: alarm_control_panel.home_alarm
+  - choose:
+      - conditions:
+          - condition: trigger
+            id: disarmed
+        sequence:
+          - service: light.turn_on
+            data:
+              color_name: green
+              brightness_pct: 50
+            target:
+              entity_id: light.tagreader_led
+            enabled: false
+          - type: turn_off
+            device_id: 40d10cffbed3f4a013ccb2932cb67c69
+            entity_id: light.tagreader_led
+            domain: light
+      - conditions:
+          - condition: trigger
+            id: armed_away
+        sequence:
+          - service: light.turn_on
+            data:
+              color_name: red
+            target:
+              entity_id: light.tagreader_led
+      - conditions:
+          - condition: or
+            conditions:
+              - condition: trigger
+                id: arming
+              - condition: trigger
+                id: pending
+        sequence:
+          - repeat:
+              until:
+                - condition: state
+                  entity_id: alarm_control_panel.home_alarm
+                  state: armed_away
+              sequence:
+                - service: light.turn_on
+                  data:
+                    color_name: orange
+                  target:
+                    entity_id: light.tagreader_led
+                - service: esphome.tagreader_1c419f_play_rtttl
+                  data:
+                    song_str: Beep:d=32,o=6,b=100:8g
+                - delay:
+                    hours: 0
+                    minutes: 0
+                    seconds: 1
+                    milliseconds: 0
+                - service: light.turn_off
+                  data: {}
+                  target:
+                    entity_id: light.tagreader_led
+                - delay:
+                    hours: 0
+                    minutes: 0
+                    seconds: 1
+                    milliseconds: 0
+    default: []
 mode: restart
+
 ```
 
 ⭐⭐⭐
