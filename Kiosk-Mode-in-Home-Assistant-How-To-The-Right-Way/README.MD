@@ -48,9 +48,14 @@ states:
     type: custom:mushroom-chips-card
     chips:
       - type: menu
-      - type: action
+      - type: template
+        icon: |
+          {% if is_state('input_boolean.kiosk_mode','on') %}
+            mdi:arrow-expand-vertical
+          {% else %}
+            mdi:arrow-collapse-up
+          {% endif %}
         icon_color: light-green
-        icon: mdi:arrow-expand-vertical
         tap_action:
           action: call-service
           service: input_boolean.toggle
