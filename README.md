@@ -1,12 +1,13 @@
 # Home-Assistant-Tutorials
-Example code for Home Assistant Tutorials for the Smart Home Junkie channel on Youtube
+Example code for Home Assistant Tutorials for the [Smart Home Junkie channel on Youtube](https://www.youtube.com/c/smarthomejunkie)
 
 <a href="https://www.patreon.com/bePatron?u=50155158" target="_blank"><img src="https://github.com/smarthomejunkie/Home-Assistant-Tutorials/blob/master/become-a-patron.png?raw=true" alt="Become a Patron!"></a>
 
 View the list of my devices and the devices that I recommend [on this page](https://github.com/smarthomejunkie/MyDevices/)
 
-I will post all the code here that you can use while you follow a tutorial on the Youtube channel.
+I will post all the code here that you can use while you follow a tutorial on [the Youtube channel](https://www.youtube.com/c/smarthomejunkie).
 
+* [Kiosk Mode in Home Assistant – How To – The Right Way!](https://github.com/smarthomejunkie/Home-Assistant-Tutorials/tree/master/Kiosk-Mode-in-Home-Assistant-How-To-The-Right-Way)
 * [How To Restore Light State at Restart of Home Assistant](https://github.com/smarthomejunkie/Home-Assistant-Tutorials/tree/master/How-To-Restore-Light-State-at-Restart-of-Home-Assistant)
 * [How to use Motion Sensors in Home Assistant](https://github.com/smarthomejunkie/Home-Assistant-Tutorials/tree/master/How-To-Use-Motion-Sensors-In-Home-Assistant)
 * [How to build a Perfect NFC Tag Reader for Home Assistant](https://github.com/smarthomejunkie/Home-Assistant-Tutorials/tree/master/How-to-build-a-perfect-NFC-Tag-Reader-for-Home-Assistant)
