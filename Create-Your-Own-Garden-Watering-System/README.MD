@@ -516,7 +516,7 @@ Here you go! Here's the dashboard code. You need to have mushroom cards and the 
               action: more-info
             icon_color: light-green
           - type: custom:mushroom-entity-card
-            entity: automation.sprinkler_water_the_garden
+            entity: automation.sprinkler_check_if_garden_should_be_watered
             icon_color: light-green
             tap_action:
               action: toggle
