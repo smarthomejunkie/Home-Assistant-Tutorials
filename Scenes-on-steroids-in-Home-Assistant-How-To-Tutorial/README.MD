@@ -19,7 +19,7 @@ If this helped and saved you time, you can support me by becoming my Patron, buy
 
 <a href="https://www.patreon.com/bePatron?u=50155158" target="_blank"><img src="https://github.com/smarthomejunkie/Home-Assistant-Tutorials/blob/master/become-a-patron.png?raw=true" width="217" alt="Become a Patron!"></a>
 
-<a href="https://ko-fi.com/smarthomejunkie" target="_blank"><img src="https://github.com/smarthomejunkie/Home-Assistant-Tutorials/blob/master/Ko-Fi-Logo.png?raw=true" alt="Buy Me A Coffee" height="51" width="217" ></a>
+<a href="https://ko-fi.com/smarthomejunkie" target="_blank"><img src="https://github.com/smarthomejunkie/Home-Assistant-Tutorials/blob/master/Ko-Fi-Logo.png?raw=true" alt="Buy Me A Coffee" width="217" ></a>
 
 <a href="https://www.youtube.com/c/smarthomejunkie/join" target="_blank"><img src="https://github.com/smarthomejunkie/Home-Assistant-Tutorials/blob/master/Join-Logo.png?raw=true" width="217" alt="Join my Channel!"></a>
 
