@@ -8,46 +8,7 @@ The instructions for this tutorial can be found [in this YouTube video](https://
 
 View the list of my devices and the devices that I recommend [on this page](https://github.com/smarthomejunkie/MyDevices/)
 
-The Sensor Template code :
-
-```
-- sensor:
-    ##### Low Battery list ##################################
-    - name: "Low Battery Devices"
-      unique_id: ba292875-ae67-480d-9867-29cdb20afaea
-      icon: >
-        mdi:battery-low
-      state: >
-        {% set threshold = states('input_number.battery_threshold') | int %}
-        {%- set ns = namespace(sensors=[]) -%}
-        {%- for state in states.sensor 
-          | selectattr('attributes.device_class', 'defined') 
-          | selectattr('attributes.state_class', 'defined') 
-          | selectattr('attributes.device_class', '==', 'battery') 
-          | selectattr('attributes.state_class', '==', 'measurement') 
-          | selectattr('state', 'is_number') -%}
-          {%- if state.state | int <= threshold -%}
-            {% set ns.sensors = ns.sensors + [dict(name = state.name | replace(' battery', '') | replace(' Battery', ''), state = state.state | int)] %}
-          {%- endif -%}
-        {%- endfor -%}
-        {%- set batt = ns.sensors | sort(attribute='state') %}
-        {%- set ns = namespace(batt='') -%}
-        {%- for state in batt -%}
-            {% set ns.batt= ns.batt + (state.name  ~ ' (' ~ state.state ~'%)' ~ "\n") %}
-        {%- endfor -%}
-
-        {% if ns.batt | count > 0 %}
-          {{ ns.batt | truncate(255, true, '...') }}
-        {% else %}
-          {{ 'unavailable' }}
-        {% endif %}
-```
-
-The code for the Conditional Card on the dashboard:
-
-```
-{{states('sensor.low_battery_devices')}}
-```
+You can [download the code here](https://ko-fi.com/s/d659f895fe).
 
 Visit my YouTube channel: [Smart Home Junkie](https://www.youtube.com/c/SmartHomeJunkie)
 
