@@ -11,58 +11,7 @@ View the list of my devices and the devices that I recommend [on this page](http
 You can copy and paste the code used in this video, but please make sure that you replace the entities in this code by your own entities.
 This code is here for your convenience and works 100% if everything is installed correctly. If something is not working in your install, please review your installation to see what might be missing in your setup.
 
-## The Code:
-
-**First simple code:**
-
-```
-kiosk_mode:
-  non_admin_settings:
-    kiosk: true
-    ignore_entity_settings: true
-```
-
-**Second step: switch kiosk mode on and off**
-
-```
-kiosk_mode:
-  non_admin_settings:
-    kiosk: true
-    ignore_entity_settings: true
-  entity_settings:
-    - entity:
-        input_boolean.kiosk_mode: 'on'
-      hide_header: true
-    - entity:
-        input_boolean.kiosk_mode: 'off'
-      hide_header: false
-``` 
-
-**Third step: hide buttons for non-admins**
-
-```
-type: custom:state-switch
-entity: group
-states:
-  admin:
-    type: custom:mushroom-chips-card
-    chips:
-      - type: menu
-      - type: template
-        icon: |
-          {% if is_state('input_boolean.kiosk_mode','on') %}
-            mdi:arrow-expand-vertical
-          {% else %}
-            mdi:arrow-collapse-up
-          {% endif %}
-        icon_color: light-green
-        tap_action:
-          action: call-service
-          service: input_boolean.toggle
-          data: {}
-          target:
-            entity_id: input_boolean.kiosk_mode
-```
+The code used in this video [can be downloaded here](https://ko-fi.com/s/f45b730542).
 
 ⭐⭐⭐
 
