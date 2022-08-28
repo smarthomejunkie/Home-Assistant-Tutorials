@@ -8,7 +8,7 @@ The instructions for this tutorial can be found [in this YouTube video](https://
 
 View the list of my devices and the devices that I recommend [on this page](https://github.com/smarthomejunkie/MyDevices/)
 
-The custom sensor code used in the video can be downloaded here: https://youtu.be/cdz32TLu_gw
+The custom sensor code used in the video [can be downloaded here](https://ko-fi.com/s/eb3a98ab41)
 
 Visit my YouTube channel: [Smart Home Junkie](https://www.youtube.com/c/SmartHomeJunkie)
 
