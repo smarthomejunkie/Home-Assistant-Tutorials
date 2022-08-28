@@ -11,63 +11,7 @@ View the list of my devices and the devices that I recommend [on this page](http
 You can copy and paste the code used in this video, but please make sure that you replace the entities in this code by your own entities.
 This code is here for your convenience and works 100% if everything is installed correctly. If something is not working in your install, please review your installation to see what might be missing in your setup.
 
-**The Automations:**
-
-```
-alias: 'Light: Monitor Light Status Office Front Left'
-description: ''
-trigger:
-  - platform: device
-    type: changed_states
-    device_id: bc8762684309669a2d90d027dde70e2c
-    entity_id: light.office_front_left
-    domain: light
-condition: []
-action:
-  - if:
-      - condition: device
-        type: is_on
-        device_id: bc8762684309669a2d90d027dde70e2c
-        entity_id: light.office_front_left
-        domain: light
-    then:
-      - service: input_boolean.turn_on
-        data: {}
-        target:
-          entity_id: input_boolean.office_light_front_left_status
-    else:
-      - service: input_boolean.turn_off
-        data: {}
-        target:
-          entity_id: input_boolean.office_light_front_left_status
-mode: single
-```
-
-```
-alias: 'Light: Restore Light Status at Restart'
-description: ''
-trigger:
-  - platform: homeassistant
-    event: start
-condition: []
-action:
-  - if:
-      - condition: state
-        entity_id: input_boolean.office_light_front_left_status
-        state: 'on'
-    then:
-      - type: turn_on
-        device_id: bc8762684309669a2d90d027dde70e2c
-        entity_id: light.office_front_left
-        domain: light
-    else:
-      - type: turn_off
-        device_id: bc8762684309669a2d90d027dde70e2c
-        entity_id: light.office_front_left
-        domain: light
-mode: single
-
-```
+The code used in this video [can be downloaded here](https://ko-fi.com/s/320a6a3af7).
 
 ⭐⭐⭐
 

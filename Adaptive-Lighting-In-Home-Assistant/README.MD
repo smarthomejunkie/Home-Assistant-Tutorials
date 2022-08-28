@@ -11,71 +11,7 @@ View the list of my devices and the devices that I recommend [on this page](http
 You can copy and paste the code used in this video, but please make sure that you replace the entities in this code by your own entities.
 This code is here for your convenience and works 100% if everything is installed correctly. If something is not working in your install, please review your installation and check the sensors in your Developer Tools to see what might be missing in your setup.
 
-**The Automation:**
-
-```
-alias: 'Light: Toggle Hallway lights on motion'
-description: >-
-  Toggle lights and set color temperature and brightness to bright during the
-  day and to cosy during the night.
-trigger:
-  - type: motion
-    platform: device
-    device_id: ffba233ac2e7f65649e80d71dd97a849
-    entity_id: binary_sensor.hall_downstairs_motion_sensor_occupancy
-    domain: binary_sensor
-    id: motion-detected
-  - type: no_motion
-    platform: device
-    device_id: ffba233ac2e7f65649e80d71dd97a849
-    entity_id: binary_sensor.hall_downstairs_motion_sensor_occupancy
-    domain: binary_sensor
-    id: motion-stopped
-    for:
-      hours: 0
-      minutes: 5
-      seconds: 0
-condition: []
-action:
-  - choose:
-      - conditions:
-          - condition: trigger
-            id: motion-detected
-          - condition: state
-            entity_id: sun.sun
-            state: above_horizon
-        sequence:
-          - service: light.turn_on
-            data:
-              kelvin: 4000
-              brightness_pct: 100
-            target:
-              entity_id: light.hall_downstairs
-      - conditions:
-          - condition: trigger
-            id: motion-detected
-          - condition: state
-            entity_id: sun.sun
-            state: below_horizon
-        sequence:
-          - service: light.turn_on
-            data:
-              kelvin: 2400
-              brightness_pct: 50
-            target:
-              entity_id: light.hall_downstairs
-      - conditions:
-          - condition: trigger
-            id: motion-stopped
-        sequence:
-          - service: light.turn_off
-            data: {}
-            target:
-              entity_id: light.hall_downstairs
-    default: []
-mode: single
-
-```
+You can [download the code used in the video here](https://ko-fi.com/s/8959bce6e8).
 
 ⭐⭐⭐
 

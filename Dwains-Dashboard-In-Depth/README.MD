@@ -6,62 +6,7 @@ The instructions for this tutorial can be found [in this YouTube video](https://
 
 View the list of my devices and the devices that I recommend [on this page](https://github.com/smarthomejunkie/MyDevices/)
 
-The code for the mushroom template card to change the icon is:
-
-```
-{% if is_state('binary_sensor.office_motion_sensor_occupancy','off') %}
-  mdi:motion-sensor-off
-{% else %}
-  mdi:motion-sensor
-{% endif %}
-```
-
-The code for the mushroom template card to change the icon-color is:
-
-```
-{% if is_state('binary_sensor.office_motion_sensor_occupancy','off') %}
-  grey
-{% else %}
-  light-green
-{% endif %}
-```
-
-The code for the mushroom template card to show the last triggered time is:
-
-```
-Triggered: {{ as_timestamp(states.binary_sensor.office_motion_sensor_occupancy.last_changed) | timestamp_custom(' %H:%M',true | int)}}
-```
-
-The code for the slider button-card is:
-
-```
-type: custom:slider-button-card
-entity: climate.office_front
-slider:
-  direction: left-right
-  background: solid
-  use_state_color: false
-  use_percentage_bg_opacity: false
-  show_track: true
-  toggle_on_click: false
-  force_square: false
-show_name: true
-show_state: true
-compact: false
-icon:
-  show: true
-  use_state_color: false
-  tap_action:
-    action: more-info
-  icon: ''
-action_button:
-  mode: toggle
-  icon: mdi:power
-  show: false
-  show_spinner: true
-  tap_action:
-    action: toggle
-```
+The code used in this video [can be downloaded here](https://ko-fi.com/s/fa48f52c50).
 
 Visit my YouTube channel: [Smart Home Junkie](https://www.youtube.com/c/SmartHomeJunkie)
 
