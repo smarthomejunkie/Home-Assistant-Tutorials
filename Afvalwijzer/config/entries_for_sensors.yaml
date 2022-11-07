@@ -7,8 +7,8 @@
 #### Afvalwijzer ##################################
 - platform: afvalwijzer
   provider: afvalstoffendienstkalender # (required, default = mijnafvalwijzer) either choose mijnafvalwijzer or afvalstoffendienstkalender
-  postal_code: 5241CD # (required, default = '')
-  street_number: 49 # (required, default = '')
+  postal_code: 1111AA # (required, default = '')
+  street_number: 99 # (required, default = '')
   #    suffix: A                            # (optional, default = '')
   #    exclude_pickup_today: true       # (optional, default = true) to take or not to take Today into account in the next pickup.
   default_label: Geen # (optional, default = Geen) label if no date found
