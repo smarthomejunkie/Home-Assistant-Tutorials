@@ -3,10 +3,9 @@
 # INSTEAD, COPY THIS CODE WITHIN YOUR OWN CONFIGURATION.YAML          
 ##########
 
-```
+
 sensor: !include sensors.yaml
 template: !include templates.yaml
 
 homeassistant:
   customize: !include customize.yaml
-```

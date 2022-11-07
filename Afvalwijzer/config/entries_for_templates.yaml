@@ -3,7 +3,7 @@
 # INSTEAD, COPY THIS CODE WITHIN YOUR OWN TEMPLATES.YAML          
 ##########
 
-```
+
 - sensor:
     ##### Afvalwijzer templates ##################################
     - name: afvalwijzer_first_next_item_formatted
@@ -79,4 +79,3 @@
     - name: afvalwijzer_next_icon
       state: >
         {{ 'mdi:numeric-' + states('sensor.afvalwijzer_next_in_days') + '-box-multiple-outline' }}
-```
