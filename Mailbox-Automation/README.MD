@@ -10,52 +10,7 @@ View the list of my devices and the devices that I recommend [on this page](http
 
 Get the [Aqara Door Sensor](https://s.click.aliexpress.com/e/_A26g2H)
 
-## NEW WAY OF CREATING TEMPLATE SENSORS
-At the time when I created the video, there was a different (old) way of creating template sensors. In the meantime, a new modern way is developed. The code below uses the new modern way of using template sensors. The video is still valid, but you should use the new approach if you use a templates.yaml file.
-
-**Step 1:** Create a templates.yaml file in your config folder
-
-**Step 2:** Add the following line to your configuration.yaml:
-
-```
-template: !include templates.yaml
-```
-**Step 3:** Add the following code to your templates.yaml:
-
-```
-- sensor:
-    #### Mailbox Sensor ##################################
-    - name: Mailbox Last Triggered Formatted
-      state: >
-        {% if (
-            (( as_timestamp(now()) | timestamp_custom("%m%d")) | int) - ((as_timestamp(states("input_datetime.mailbox_last_triggered")) | timestamp_custom("%m%d")) | int)
-            ) == 0 -%}
-          {{ as_timestamp(states("input_datetime.mailbox_last_triggered")) | timestamp_custom("%H:%M") }}
-        {%- else -%}
-          none
-        {%- endif %}
-```
-**Step 5:** Add the following code to your lovelace dashboard manual card:
-
-```
-type: 'custom:button-card'
-entity: input_boolean.mail_arrived
-color: white
-show_state: false
-tap_action: none
-state:
-  - value: 'on'
-    color: yellow
-    icon: 'mdi:mailbox'
-    name: |
-      [[[
-        var time_delivered = states["sensor.mailbox_last_triggered_formatted"].state;
-        return 'Mail delivered at ' + time_delivered 
-      ]]]
-  - value: 'off'
-    icon: 'mdi:mailbox-open-up-outline'
-    name: No mail today!
-```
+You can [download the code used in the video here](https://ko-fi.com/s/0e3eca8bf8)
 
 **MAKE SURE THAT YOU DO NOT HAVE ANY TEMPLATE SENSOR DEFINITIONS IN YOUR CONFIGURATION.YAML OR SENSORS.YAML ANYMORE IF YOU USE A TEMPLATES.YAML**
 
