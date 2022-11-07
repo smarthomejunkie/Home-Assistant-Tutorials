@@ -1,0 +1,82 @@
+##########
+# DO NOT RENAME THIS FILE TO TEMPLATES.YAML! YOU WILL BREAK YOUR CONFIG IF YOU DO SO!
+# INSTEAD, COPY THIS CODE WITHIN YOUR OWN TEMPLATES.YAML          
+##########
+
+```
+- sensor:
+    ##### Afvalwijzer templates ##################################
+    - name: afvalwijzer_first_next_item_formatted
+      state: >
+        {% if is_state('sensor.afvalwijzer_next_type', 'gft') %}GFT
+        {% elif is_state('sensor.afvalwijzer_next_type', 'papier') %}Papier
+        {% elif is_state('sensor.afvalwijzer_next_type', 'restafval') %}Restafval
+        {% endif %}
+
+    - name: Afvalwijzer Today Formatted
+      state: >
+        {% if is_state('sensor.afvalwijzer_today', 'gft') %}GFT
+        {% elif is_state('sensor.afvalwijzer_today', 'papier') %}Papier
+        {% elif is_state('sensor.afvalwijzer_today', 'restafval') %}Restafval
+        {% elif is_state('sensor.afvalwijzer_today', 'restafval, kerstbomen') %}Restafval
+        {% else %}Geen
+        {% endif %}
+
+    - name: Afvalwijzer Tomorrow Formatted
+      state: >
+        {% if is_state('sensor.afvalwijzer_tomorrow', 'gft') %}GFT
+        {% elif is_state('sensor.afvalwijzer_tomorrow', 'papier') %}Papier
+        {% elif is_state('sensor.afvalwijzer_tomorrow', 'restafval') %}Restafval
+        {% else %}Geen
+        {% endif %}
+      icon: >
+        {% if is_state('sensor.afvalwijzer_tomorrow', 'gft') %}
+        mdi:food-apple
+        {% elif is_state('sensor.afvalwijzer_tomorrow', 'papier') %}Papier
+        mdi:newspaper-variant-multiple-outline
+        {% elif is_state('sensor.afvalwijzer_tomorrow', 'restafval') %}Restafval
+          mdi:delete
+        {% else %}
+          mdi:delete-empty
+        {% endif %}
+      picture: >
+        {% if is_state('sensor.afvalwijzer_tomorrow', 'gft') %}
+          /local/afvalwijzer/gft.png
+        {% elif is_state('sensor.afvalwijzer_tomorrow', 'papier') %}Papier
+          /local/afvalwijzer/papier.png 
+        {% elif is_state('sensor.afvalwijzer_tomorrow', 'restafval') %}Restafval
+          /local/afvalwijzer/restafval.png
+        {% else %}
+          /local/afvalwijzer/geen.png
+        {% endif %}
+
+    - name: today
+      state: >
+        {% set months = ["januari", "februari", "maart", "april", "mei", "juni", "juli", "augustus", "september", "oktober", "november", "december"] %}
+        {% set month = months[now().strftime('%m') | int -1] %}
+        {{ now().strftime('%d') + ' ' + month + ' '+ now().strftime('%Y') }}
+
+    - name: afvalwijzer_days_until_collection_date
+      state: >
+        {% set days_until_collection_date = 100 %}
+        {% if (state_attr('sensor.afvalwijzer_gft', 'days_until_collection_date') != None) %}
+          {% if (state_attr('sensor.afvalwijzer_gft', 'days_until_collection_date') < days_until_collection_date) %}
+            {% set days_until_collection_date = state_attr('sensor.afvalwijzer_gft', 'days_until_collection_date') %}
+          {% endif %}
+        {% endif %}
+        {% if (state_attr('sensor.afvalwijzer_papier', 'days_until_collection_date') != None) %}
+          {% if (state_attr('sensor.afvalwijzer_papier', 'days_until_collection_date') < days_until_collection_date) %}
+            {% set days_until_collection_date = state_attr('sensor.afvalwijzer_papier', 'days_until_collection_date') %}
+          {% endif %}
+        {% endif %}
+        {% if (state_attr('sensor.afvalwijzer_restafval', 'days_until_collection_date') != None) %}
+          {% if (state_attr('sensor.afvalwijzer_restafval', 'days_until_collection_date') < days_until_collection_date) %}
+            {% set days_until_collection_date = state_attr('sensor.afvalwijzer_restafval', 'days_until_collection_date') %}
+          {% endif %}
+        {% endif %}
+        {{ days_until_collection_date }}
+
+    - name: afvalwijzer_next_icon
+      state: >
+        {{ 'mdi:numeric-' + states('sensor.afvalwijzer_next_in_days') + '-box-multiple-outline' }}
+```
