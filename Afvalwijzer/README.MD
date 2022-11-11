@@ -3,7 +3,7 @@ This is the **step by step copy and paste code** you need for the integration of
 
 ![](screenshot.png?raw=true)
 
-The code to get this to work on your dashboard can be downloaded [here:](https://ko-fi.com/s/43b474913b)
+The code to get this to work on your dashboard can be downloaded [here on Ko-Fi](https://ko-fi.com/s/43b474913b)
 
 If this code helped you in any way, you can support me by subscribing to my YouTube channel. You will find loads of other interesting tutorials there.
 Visit my YouTube channel: [Smart Home Junkie](https://www.youtube.com/channel/UCVtQ4AOSmCFUuvixddYiSxw)
