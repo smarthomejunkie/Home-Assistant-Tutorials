@@ -7,6 +7,7 @@ View the list of my devices and the devices that I recommend [on this page](http
 
 I will post all the code here that you can use while you follow a tutorial on [the Youtube channel](https://www.youtube.com/c/smarthomejunkie).
 
+* [Awtrix/Ulanzi Desktop Clock Blueprints](https://github.com/smarthomejunkie/Ulanzi-Awtrix-BluePrints)
 * [Scenes on Steroids in Home Assistant - HowTo - Tutorial](https://github.com/smarthomejunkie/Home-Assistant-Tutorials/tree/master/Scenes-on-steroids-in-Home-Assistant-How-To-Tutorial)
 * [Kiosk Mode in Home Assistant – How To – The Right Way!](https://github.com/smarthomejunkie/Home-Assistant-Tutorials/tree/master/Kiosk-Mode-in-Home-Assistant-How-To-The-Right-Way)
 * [How To Restore Light State at Restart of Home Assistant](https://github.com/smarthomejunkie/Home-Assistant-Tutorials/tree/master/How-To-Restore-Light-State-at-Restart-of-Home-Assistant)
